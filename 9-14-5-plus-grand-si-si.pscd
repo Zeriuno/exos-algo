@@ -1,0 +1,19 @@
+#pseudo-code de M. Jacquenod
+
+programme plus-grand
+#declarations
+début
+  écrire("Entrez la valeur du premier chiffre")
+  lire(a)
+  écrire("Entrez la valeur du second chiffre")
+  lire(b)
+  si(a > b) alors
+    écrire("Le chiffre plus grand est ", a)
+      sinon
+        si(a < b) alors
+          écrire("Le chiffre plus grand est ", b)
+        sinon
+          écrire("Les deux chiffres sont égaux")
+      finsi
+  finsi
+fin

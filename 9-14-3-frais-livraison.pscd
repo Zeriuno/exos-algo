@@ -1,0 +1,13 @@
+#
+programme livraison
+#sans declaration
+début
+  écrire("Donner le prix de l'objet")
+  lire(prix-objet)
+  si(prix-objet >= seuil-gratuité) alors
+    écrire("La livraison sera gratuite, vous devez" prix-objet)
+  sinon
+    prix-payé ← prix-objet + frais-livraison
+    écrire("Vous devez ", prix-payé, "dont ", frais-livraison, "de frais de livraison")
+  finsi
+fin

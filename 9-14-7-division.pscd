@@ -1,0 +1,17 @@
+#Trouver le résultat de la division de 2 nombres a et b, réels
+
+programme division
+declarations
+  variables chiffre, diviseur, résultat en réels
+début
+  écrire("Saisissez un nombre différent de zéro: ")
+  lire(chiffre)
+  écrire("Saisissez un nombre différent de zéro: ")
+  lire(diviseur)
+    si(diviseur=0) alors
+       écrire("Ce nombre ne peut être zéro, la division est impossible")
+    sinon
+      résultat ← chiffre / diviseur
+      écrire("Le résultat de la division de " chiffre "par " diviseur "est " résultat)
+    finsi
+fin

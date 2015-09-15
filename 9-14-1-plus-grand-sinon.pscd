@@ -1,0 +1,15 @@
+programme plus-grand
+declarations
+
+début
+
+si(a > b) alors
+  sinon
+    si(a < b) alors
+      écrire
+    sinon
+      écrire
+    finsi
+finsi
+
+fin

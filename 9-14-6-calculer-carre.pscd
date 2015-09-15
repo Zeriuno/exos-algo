@@ -1,0 +1,9 @@
+programme carré
+declarations
+variables nombre, carré en réels
+début
+  écrire("Saisissez un nombre : ")
+  lire(nombre)
+  carré ← nombre * nombre
+  écrire("Le carré de ", nombre "est " carré)
+fin
