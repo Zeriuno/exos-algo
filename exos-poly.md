@@ -21,14 +21,15 @@ a vaudra 3 (affectation dans la dernière ligne), b vaudra 4 (affectation quand 
 
 ---
 
-programme conversion-euro-franc-1chiffre.pscd
+programme conversion_euro_franc_1chiffre
 declarations
-  variables francs, euros
-  constante franc-vers-euro-fois-dix ← 65,5957
+  variables francs, euros en réels
+  constante franc_vers_euro_fois_dix ← 65,5957
 début
   écrire("Saisissez le montant en francs à convertir en euros : ")
   lire(francs)
-  euros ← partie_ent((francs / franc-vers-euro-fois-dix) + 5)/10
+  euros ← partie_ent(francs / franc_vers_euro_fois_dix)/10
+  écrire("Le montant en euros qui correspond au montant de ", francs "francs est de ", euros)
 fin
 
 ---
