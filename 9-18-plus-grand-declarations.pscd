@@ -1,0 +1,19 @@
+#pseudo-code de M. Jaquenod
+programme plus-grand-declarations
+declarations
+  variables a, b, différence en réels
+début
+  écrire("Entrez la valeur du premier chiffre")
+  lire(a)
+  écrire("Entre la valeur du second chiffre")
+  lire(b)
+  différence ← a - b
+  si différence > 0 alors
+    écrire("Le chiffre plus grand est ", a)
+    sinonsi(différence < 0)
+      écrire("Le chiffre plus grand est ", b)
+    sinon
+      écrire("Les deux chiffres sont égaux")
+    finsi
+  finsi
+fin
