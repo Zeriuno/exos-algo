@@ -12,7 +12,7 @@ début
   lire(note1)
   écrire("Saisissez la deuxième note : ")
   lire(note2)
-  moyenne ← (note1 + note2)/2
+  moyenne ← (note1 + note2)/2 #ou, idéalement avec une somme automatique de toutes les notes divisée par leur décompte
   si(moyenne >= 10) alors
     écrire("Vous êtes reçu au BAC")
     sinon
