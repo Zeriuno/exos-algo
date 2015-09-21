@@ -30,7 +30,7 @@ début
   écrire("Saisissez un chiffre compris entre 1 et 7")
   lire(jour)
   si(jour = 0) alors
-    écrire("Tu fais le malin, et bien, je ne te parlerai plus!")
+    écrire("Tu fais le malin, tant pis pour toi!")
     sinonsi(jour > 0) alors
     jour ← jour * -1
   finsi
