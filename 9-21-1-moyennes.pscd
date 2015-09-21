@@ -17,9 +17,9 @@ début
     écrire("Vous êtes reçu au BAC")
     sinon
       si(moyenne >= 8) alors
-      écrire("Vous êtes aux ratrappages")
-      sinon
-      écrire("Vous êtes recalé")
+        écrire("Vous êtes aux ratrappages")
+        sinon
+        écrire("Vous êtes recalé")
       finsi
   finsi
 fin
