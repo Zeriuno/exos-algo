@@ -1,0 +1,13 @@
+Afficher la table des multiplications du nombre entier saisi par l'utilisateur de 0 à 10.
+
+programme table_multiplications
+déclarations
+  variable nombre facteur produit en entiers
+début
+  écrire("Saisir un nombre entier")
+  lire(nombre)
+  pour facteur variant de 0 à 10 par pas de 1 faire
+    produit ← nombre * facteur
+    écrire(nombre "multiplié par ", facteur " donne ", produit)
+  finpour
+fin
