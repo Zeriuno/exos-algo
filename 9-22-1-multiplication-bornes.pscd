@@ -1,0 +1,17 @@
+Afficher la table des multiplications du nombre entier saisi par l'utilisateur de var à var2.
+
+programme multiplication-bornes-libres
+déclarations
+  variables facteur, multiplicateur, produit, borne_basse, borne_haute en entiers
+début
+  écrire("Saissez le nombre entier que vous voulez multiplier")
+  lire(facteur)
+  écrire("Au début, pour combien il faudra le multiplier (saisir un nombre entier) ? ")
+  lire(borne_basse)
+  écrire("Et jusqu'à combien (saisir un nombre entier) ? ")
+  lire(borne_haute)
+  pour multiplicateur variant de borne_basse à borne_haute par pas de 1 faire
+    produit ← facteur * multiplicateur
+    écrire(facteur " x ", multiplicateur " = ", produit)
+  finpour
+fin
