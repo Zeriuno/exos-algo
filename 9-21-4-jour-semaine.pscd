@@ -1,0 +1,21 @@
+Un utilisateur rentre un chiffre entre 1 et 7, il faut renvoyer le jour de la semaine correspondant:
+
+programme jour_semaine
+déclarations
+  variable jour en entier
+  variable nom_jour en chaîne de caractères
+début
+  écrire("Saisissez un chiffre compris entre 1 et 7")
+  lire(jour)
+  selonque(jour) alors
+    cas 1: nom_jour ← "Lundi" fincas
+    cas 2: nom_jour ← "Mardi" fincas
+    cas 3: nom_jour ← "Mercredi" fincas
+    cas 4: nom_jour ← "Jeudi" fincas
+    cas 5: nom_jour ← "Vendredi" fincas
+    cas 6: nom_jour ← "Samedi" fincas
+    cas 7: nom_jour ← "Dimanche" fincas
+    par défaut: écrire("Le chiffre n'est pas compris entre 1 et 7, la saisie est invalide (et pourtant ce n'était pas très compliqué)") #idéalement il faudrait ensuite renvoier vers le début ou à la fin du programme.
+  finselonque
+  écrire("Le jour de la semaine correspondant est ", nom_jour)
+fin
