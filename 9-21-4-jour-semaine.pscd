@@ -40,13 +40,14 @@ début
   fins
 
   selonque(jour) alors
-    cas 1: nom_jour ← "Lundi"    fincas
-    cas 2: nom_jour ← "Mardi"    fincas
-    cas 3: nom_jour ← "Mercredi" fincas
-    cas 4: nom_jour ← "Jeudi"    fincas
-    cas 5: nom_jour ← "Vendredi" fincas
-    cas 6: nom_jour ← "Samedi"   fincas
-    cas 7: nom_jour ← "Dimanche" fincas
+    cas 1: nom_jour ← "Lundi"       fincas
+    cas 2: nom_jour ← "Mardi"       fincas
+    cas 3: nom_jour ← "Mercredi"    fincas
+    cas 4: nom_jour ← "Jeudi"       fincas
+    cas 5: nom_jour ← "Vendredi"    fincas
+    cas 6: nom_jour ← "Samedi"      fincas
+    cas 7: nom_jour ← "Dimanche"    fincas
+    par défaut: nom_jour ← "Jamais" fincas
   finselonque
   écrire("Le jour de la semaine correspondant est ", nom_jour)
 fin
