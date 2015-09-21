@@ -1,3 +1,10 @@
+fonction abs
+déclarations
+
+début
+  valeur_réstituée ← valeur_reçue * -1
+fin
+
 programe valeur_absolue
 déclarations
   variables valeur valeur_absolue en réels
