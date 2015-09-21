@@ -15,6 +15,127 @@ Quelles seront les valeurs de a et de b après l'exécution?
 
 a vaudra 3 (affectation dans la dernière ligne), b vaudra 4 (affectation quand a valait 1).
 
+2.2
+
+Quelles seront les valeurs des variables A, B et C après l'exécution des instructions suivantes?
+
+Variables A, B, C en Entier
+Début
+A ← 5
+B ← 3
+C ← A + B
+A ← 2
+C ← B - A
+Fin
+--
+A vaut 2
+B vaut 3
+C vaut 1
+--
+
+2.3
+Quelles seront les valeurs des variables A et B après l'exécution des instructions suivantes?
+
+Variables A, B en Entier
+Début
+A ← 5
+B ← A + 4
+A ← A + 1
+B ← A - 4
+Fin
+--
+A vaut 6
+B vaut 2
+--
+
+2.4
+Quelles seront les valeurs des variables A, B et C après l'exécution des instructions suivantes?
+
+Variables A, B, C en Entier
+Début
+A ← 3
+B ← 10
+C ← A + B
+B ← A + B
+A ← C
+Fin
+--
+A vaut 13
+B vaut 13
+C vaut 13
+--
+
+2.5
+Quelles seront les valeurs des variables A et B après l'exécution des instructions suivantes?
+
+Variables A, B en Entier
+Début
+A ← 5
+B ← 2
+A ← B
+B ← A
+Fin
+--
+A vaut 2
+B vaut 2
+--
+2.6
+Échanger la valeur de deux variables, A et B.
+
+Variables A, B, C #(ajouté après)
+en Entier
+Début
+A ← 5
+B ← 2
+#D'après le corrigé de Christophe Darmangeat, on est obligé de passer par une variable temporaire (C dans ce cas)
+C ← B
+B ← A
+A ← C
+Fin
+
+--
+2.7
+Écrire un algorithme transférant la valeur de A à C, B à A et C à A.
+Début
+A ← 5
+B ← 2
+C ← 7
+--
+D ← B
+B ← A
+A ← C
+C ← D
+Fin
+
+Comme le signale Christophe Darmangeat, une seule variable temporaire suffit, indépendamment du nombre de variables à échanger.
+
+--
+2.8
+Que produit l'algorithme suivant?
+
+Variables A, B, C en chaînes
+Début
+A ← "423"
+B ← "12"
+C ← A + B
+Fin
+
+Une erreur, forcément, car il est impossible d'additionner des chaînes.
+
+--
+2.9
+Que produit l'algorithme suivant?
+
+Variables A, B, C en chaînes
+Début
+A ← "423"
+B ← "12"
+C ← A & B
+Fin
+
+C est égal à la chaîne 42312
+
+--
 2.14
 
 1€ = 6.56F
