@@ -1,0 +1,23 @@
+Selon la moyenne des 2 notes saisies par l'utilisateur, afficher:
+
+"Vous êtes reçus au bac" note >= 10
+"Vous êtes aux ratrappages" 10 > note >= 8
+"Vous êtes recalés" 8 > note
+
+programme resultat_bac
+déclarations
+ variable note1, note2, moyenne en réels
+début
+  écrire("Saisissez la première note : ")
+  lire(note1)
+  écrire("Saisissez la deuxième note : ")
+  lire(note2)
+  moyenne ← (note1 + note2)/2 #ou, idéalement avec une somme automatique de toutes les notes divisée par leur décompte
+  si(moyenne >= 10) alors
+    écrire("Vous êtes reçu au BAC")
+    sinonsi(moyenne >= 8) alors
+      écrire("Vous êtes aux ratrappages")
+    sinon
+      écrire("Vous êtes recalé")
+  finsi
+fin
