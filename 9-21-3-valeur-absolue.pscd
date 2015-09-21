@@ -1,3 +1,5 @@
+#Pour obtenir la valeur absolue d'un nombre négatif
+
 fonction abs
 déclarations
 
