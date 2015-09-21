@@ -21,7 +21,7 @@ début
   finsi
 fin
 
-Variante avec une seule variable, code plus compact
+#Variante avec une seule variable, code plus compact
 
 programe valeur_absolue
 déclarations
