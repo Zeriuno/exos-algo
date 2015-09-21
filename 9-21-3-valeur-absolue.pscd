@@ -1,0 +1,13 @@
+programe valeur_absolue
+déclarations
+  variables valeur valeur_absolue en réels
+début
+  écrire("Saisir un nombre : ")
+  lire(valeur)
+  si(nombre >= 0) alors
+    écrire("Sa valeur absolue est ", valeur)
+    sinon
+    valeur_absolue ← abs(valeur)
+    écrire("Sa valeur absolue est ", valeur_absolue)
+  finsi
+fin
