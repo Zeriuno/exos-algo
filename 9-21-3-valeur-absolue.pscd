@@ -4,10 +4,24 @@ déclarations
 début
   écrire("Saisir un nombre : ")
   lire(valeur)
-  si(nombre >= 0) alors
+  si(valeur >= 0) alors
     écrire("Sa valeur absolue est ", valeur)
     sinon
     valeur_absolue ← abs(valeur)
     écrire("Sa valeur absolue est ", valeur_absolue)
   finsi
+fin
+
+Variante avec une seule variable, code plus compact
+
+programe valeur_absolue
+déclarations
+  variables valeur en réels
+début
+  écrire("Saisir un nombre : ")
+  lire(valeur)
+  si(valeur < 0) alors
+    valeur ← abs(valeur)
+  finsi
+  écrire("Sa valeur absolue est ", valeur)
 fin
