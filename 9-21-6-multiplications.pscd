@@ -8,6 +8,7 @@ début
   lire(nombre)
   pour facteur variant de 0 à 10 par pas de 1 faire
     produit ← nombre * facteur
-    écrire(nombre "multiplié par ", facteur " donne ", produit)
+    écrire(nombre " multiplié par ", facteur " donne ", produit)
+    #ou sinon écrire(nombre " x ", facteur " = ", produit)
   finpour
 fin
