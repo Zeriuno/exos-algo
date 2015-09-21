@@ -37,7 +37,7 @@ début
 
   si(jour > 7) alors
     jour ← jour modulo 7
-  fins
+  finsi
 
   selonque(jour) alors
     cas 1: nom_jour ← "Lundi"       fincas
