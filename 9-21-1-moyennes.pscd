@@ -1,0 +1,22 @@
+Selon la moyenne des notes saisies par l'utilisateur, afficher:
+
+"Vous êtes reçus au bac" note >= 10
+"Vous êtes aux ratrappages" 10 > note >= 8
+"Vous êtes recalés" 8 > note
+
+programme resultat_bac
+déclarations
+ variable note en réels
+début
+  écrire("Saisissez la note : ")
+  lire(note)
+  si(note >= 10) alors
+    écrire("Vous êtes reçu au BAC")
+    sinon
+      si(note >= 8) alors
+      écrire("Vous êtes aux ratrappages")
+      sinon
+      écrire("Vous êtes recalé")
+      finsi
+  finsi
+fin
