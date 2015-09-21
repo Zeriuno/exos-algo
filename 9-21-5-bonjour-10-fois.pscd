@@ -1,0 +1,8 @@
+programme bonjour-10-fois
+déclarations
+  variable trop en entier
+début
+  pour trop variant de 1 à 10 par pas de 1 faire
+    écrire("Bonjour")
+  finpour
+fin
