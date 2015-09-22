@@ -12,3 +12,5 @@ début
     #ou sinon écrire(nombre " x ", facteur " = ", produit)
   finpour
 fin
+
+Faire une variante: l'utilisateur rentre le nombre et les bornes de la table de multiplication
