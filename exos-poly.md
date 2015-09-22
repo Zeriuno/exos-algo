@@ -196,3 +196,138 @@ début
   finsi
   écrire("La valeur en euros de ", franc " francs est ", euros)
 fin
+
+
+7.0
+Un peu de cuisine
+
+Choix: n_personnes, régime/sucrée
+
+programme recette
+déclarations
+  variables décompte invités version farine mélange  rhum en entiers
+début
+  écrire("Saisir le nombre de personnes pour lesquelles réaliser la recette")
+  lire(invités)
+  écrire("Si vous voulez une recette sucrée, saisir 1, pour une recette régime, saisir 2")
+  lire(version)
+  selonque(version) alors
+    cas 1: écrire("Vous avez choisi la recette sucrée") fincas
+    cas 2: écrire("Vous avez choisi la recette régime") fincas
+    par défaut: écrire("Le choix n'est pas valide, vous aurez une recette régime")
+  finselonque
+  pour invités variant de 1 à invités*2 par pas de 1 faire
+    ajouter_un_oeuf()
+    si (version = 1) alors
+      pour décompte variant de 1 à 5 par pas de 1 faire
+      ajouter_une_dose_de_sucre()
+      finpour
+      sinon
+      pour décompte variant de 1 à 10 ar pas de 1 faire
+      ajouter_une_dose_de_sucre()
+      finpour
+    finsi
+    pour farine variant de 1 à 20 faire
+      ajouter_une_dose_farine()
+    finpour
+    pour mélange variant de 1 à 15 par pas de 1 faire
+      battre_le_mélange()
+    finpour
+  finpour
+  pour invités variant de 1 à invités par pas de 1 faire
+    pour rhum variant de 1 à 5 par pas de 1 faire
+    ajouter_une_dose_rhum
+    finpour
+  mélanger()
+  finpour
+fin
+
+
+Changement, pour ne pas parcourir la boucle à chaque fois qu'on ajoute du sucre
+
+programme recette
+déclarations
+  variables décompte invités version farine mélange oeufs rhum en entiers
+début
+  écrire("Saisir le nombre de personnes pour lesquelles réaliser la recette")
+  lire(invités)
+  oeufs ← invités*2
+  écrire("Si vous voulez une recette sucrée, saisir 1, pour une recette régime, saisir 2")
+  lire(version)
+  selonque(version) alors
+    cas 1: écrire("Vous avez choisi la recette sucrée") fincas
+    cas 2: écrire("Vous avez choisi la recette régime") fincas
+    par défaut: écrire("Le choix n'est pas valide, vous aurez une recette régime")
+  finselonque
+  pour invités variant de 1 à rapport_oeuf par pas de 1 faire
+    ajouter_un_oeuf()
+    pour décompte variant de 1 à 5 par pas de 1 faire
+    ajouter_une_dose_de_sucre()
+    finpour
+    si(version = 2)
+      pour décompte variant de 1 à 5 par pas de 1 faire
+      ajouter_une_dose_de_sucre()
+    finsi
+    sinon
+    pour décompte variant de 1 à 10 ar pas de 1 faire
+    ajouter_une_dose_de_sucre()
+    finpour
+    finsi
+    pour farine variant de 1 à 20 faire
+      ajouter_une_dose_farine()
+    finpour
+    pour mélange variant de 1 à 15 par pas de 1 faire
+      battre_le_mélange()
+    finpour
+  finpour
+  pour invités variant de 1 à invités par pas de 1 faire
+    pour rhum variant de 1 à 5 par pas de 1 faire
+    ajouter_une_dose_rhum
+    finpour
+  mélanger()
+  finpour
+fin
+
+Améliorations possibles: sucrée / régime en booléen; sortir le redoublement du sucre = si régime, borne supérieure 5, sinon = 10;
+
+Algorithme de fonctionnement d'une horloge
+
+Algorithme pour reposer une question tant que la réponse n'est pas "oui" ou "non".
+
+programme questionnement
+déclarations
+  variables réponse en chaîne de caractères
+début
+  réponse ← "bof"
+  tantque((réponse != "oui") et (réponse != "non")) faire
+  # → Lois de Morgan → tantque(!((réponse = "oui") ou (réponse = "non")))
+    écrire("Répondez 'oui' ou 'non'!")
+    lire(réponse)
+  fintantque
+  écrire("Enfin!")
+fin
+
+variante avec répéter jusqu'à
+
+programme réponse_répéter
+déclarations
+  variables  réponse en chaîne de caractères
+début
+  répéter
+    écrire("Répondre 'oui' ou 'non'")
+    lire(réponse)
+  jusqu'à((réponse = "oui") ou (réponse = "non"))
+fin
+
+Utiliser la boucle TantQue comme une boucle pour, afin d'écrire Bonjour 10 fois.
+
+programme bonjour_tant_que
+déclarations
+ variable cpt en entiers
+début
+  cpt ← 1
+  tantque(cpt <= 10) faire
+    écrire("Bonjour")
+    cpt ← cpt++
+  fintantque
+fin

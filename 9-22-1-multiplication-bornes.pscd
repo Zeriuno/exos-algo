@@ -15,3 +15,9 @@ début
     écrire(facteur " x ", multiplicateur " = ", produit)
   finpour
 fin
+
+Possibilité d'ajouter un test pour vérifier que l'on peut rentrer dans la boucle:
+
+si(borne_basse > borne_haute) alors
+  écrire("Le premier chiffre rentré doit être inférieur au deuxième")
+finsi
