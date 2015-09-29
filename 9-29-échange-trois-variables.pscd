@@ -1,0 +1,15 @@
+#Exercice 2.7 support de cours de M. Jacquenod.
+#à B la valeur de A, à C la valeur de B, à A la valeur de C
+programme échange-trois-variables
+déclarations
+  variables vara, varb, varc, vard en entiers
+début
+  vara ← 1
+  varb ← 2
+  varc ← 3
+
+  vard ← varb
+  varb ← vara
+  vara ← varc
+  varc ← vard
+fin
