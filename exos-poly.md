@@ -382,3 +382,28 @@ C ← A & B
 Fin
 
 C est 42312, c'est-à-dire la concaténation de A et B
+
+2.12
+
+Écrivez l'algorithme pour la mensualité d'un crédit immobilier à taux fixe.
+Capital emprunté
+Nombre d'années
+Taux annuel
+
+M = C * T * ((1 + T)exp n)/(1+T)exp n -1
+
+
+programme mensualité_crédit
+variables
+  mensualité, capital, taux_annuel, taux_mensuel, années, moins en réels
+début
+  écrire("Saisir le montant du capital emprunté : ")
+  lire(capital)
+  écrire("Saisir le nombre d'années de durée de l'emprunt : ")
+  lire(années)
+  mois ← années* 12
+  écrire("Saisir le taux annuel d'intérêt : ")
+  lire(taux_annuel)
+  taux_mensuel ← taux_annuel / 12
+  mensualité = capital * taux_mensuel * ((1 + taux)exp mois)/(1 + taux)exp mois)-1)
+fin
