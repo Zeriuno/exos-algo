@@ -331,3 +331,54 @@ début
     cpt ← cpt++
   fintantque
 fin
+
+2.1
+Quelle est la valeur de A et B après l'exécution?
+
+Variables A, B en entier
+Début
+A ← 1
+B ← A + 3
+A ← 3
+Fin
+
+A vaut 3
+B vaut 4
+
+2.7
+Intervertir A (C), B (A) et C (B)
+
+Début
+A ← 5
+B ← 2
+C ← 7
+D ← A
+A ← C
+C ← B
+B ← D
+Fin
+
+
+2.8
+Que produit cet algorithme?
+
+Variables A, B, C en chaines
+Début
+A ← "423"
+B ← "12"
+C ← A + B
+Fin
+
+Une erreur, car on ne peut pas additionner des chaînes
+
+2.9
+Que produit cet algorithme?
+
+Variables A, B, C en chaines
+Début
+A ← "423"
+B ← "12"
+C ← A & B
+Fin
+
+C est 42312, c'est-à-dire la concaténation de A et B
