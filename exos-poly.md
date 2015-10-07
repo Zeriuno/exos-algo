@@ -405,5 +405,19 @@ début
   écrire("Saisir le taux annuel d'intérêt : ")
   lire(taux_annuel)
   taux_mensuel ← taux_annuel / 12
-  mensualité = capital * taux_mensuel * ((1 + taux)exp mois)/(1 + taux)exp mois)-1)
+  mensualité = capital * taux_mensuel * ((1 + taux)^mois)/(1 + taux)^mois)-1)
+fin
+
+2.13
+Un utilisateur rentre le rayon d'un cercle, calculer la circonference
+
+programme circonférence
+variables
+  rayon, circonference, en réels #comment déclare-t-on une constante en algorithmique?#
+début
+  pi ← 3.1415
+  écrire("Saisir le rayon du cercle")
+  lire(rayon)
+  circonference = 2 * pi * rayon
+  écrire("La circonférence d'un cercle avec un rayon de ", rayon " est ", circonference)
 fin
