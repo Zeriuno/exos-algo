@@ -415,7 +415,6 @@ programme circonférence
   variables  rayon, circonference, en réels
   constante  pi ← 3.1415
 début
-
   écrire("Saisir le rayon du cercle")
   lire(rayon)
   circonference = 2 * pi * rayon
