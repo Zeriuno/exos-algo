@@ -435,3 +435,19 @@ début
   carré ← nombre * nombre
   écrire("Le carré de ", nombre " est ", carré)
 fin
+
+##
+Algorithme qui multiplie un premier nombre par un deuxième
+
+programme multiplication_saisie
+déclarations
+  variables facteur_1, facteur_2, produit en réels
+début
+  écrire("Saisir le premier des deux facteurs de la multiplication : ")
+  lire(facteur_1)
+  écrire("Saisir le deuxième des deux facteurs de la multiplication : ")
+  lire(facteur_2)
+  écrire("Je multiplie ", facteur_1 " par ", facteur_2)
+  produit ← facteur_1 * facteur_2
+  écrire("Le résultat est ", produit)
+fin
