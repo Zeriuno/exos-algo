@@ -394,8 +394,8 @@ M = C * T * ((1 + T)exp n)/(1+T)exp n -1
 
 
 programme mensualité_crédit
-variables
-  mensualité, capital, taux_annuel, taux_mensuel, années, moins en réels
+déclarations
+  variables  mensualité, capital, taux_annuel, taux_mensuel, années, moins en réels
 début
   écrire("Saisir le montant du capital emprunté : ")
   lire(capital)
@@ -412,6 +412,7 @@ fin
 Un utilisateur rentre le rayon d'un cercle, calculer la circonference
 
 programme circonférence
+déclarations
   variables  rayon, circonference, en réels
   constante  pi ← 3.1415
 début
@@ -420,5 +421,3 @@ début
   circonference = 2 * pi * rayon
   écrire("La circonférence d'un cercle avec un rayon de ", rayon " est ", circonference)
 fin
-
-2.14
