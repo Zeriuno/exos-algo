@@ -421,3 +421,17 @@ début
   circonference = 2 * pi * rayon
   écrire("La circonférence d'un cercle avec un rayon de ", rayon " est ", circonference)
 fin
+
+2
+Écrivez un programme qui donne le carré du nombre saisi par l'utilisateur.
+
+programme carré_nombre
+déclarations
+  variables  nombre, carré en réels
+début
+  écrire("Saisir un nombre : ")
+  lire(nombre)
+  écrire("Je vais calculer son carré : ")
+  carré ← nombre * nombre
+  écrire("Le carré de ", nombre " est ", carré)
+fin
