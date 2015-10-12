@@ -405,7 +405,7 @@ début
   écrire("Saisir le taux annuel d'intérêt : ")
   lire(taux_annuel)
   taux_mensuel ← taux_annuel / 12
-  mensualité = capital * taux_mensuel * ((1 + taux)^mois)/(1 + taux)^mois)-1)
+  mensualité = capital * taux_mensuel * ((1 + taux)**mois)/(1 + taux)**mois)-1)
 fin
 
 2.13
