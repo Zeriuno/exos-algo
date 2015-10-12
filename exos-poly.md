@@ -412,12 +412,14 @@ fin
 Un utilisateur rentre le rayon d'un cercle, calculer la circonference
 
 programme circonférence
-variables
-  rayon, circonference, en réels #comment déclare-t-on une constante en algorithmique?#
+  variables  rayon, circonference, en réels
+  constante  pi ← 3.1415
 début
-  pi ← 3.1415
+
   écrire("Saisir le rayon du cercle")
   lire(rayon)
   circonference = 2 * pi * rayon
   écrire("La circonférence d'un cercle avec un rayon de ", rayon " est ", circonference)
 fin
+
+2.14
