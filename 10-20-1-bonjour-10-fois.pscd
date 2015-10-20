@@ -1,0 +1,9 @@
+/* Répétition d'un exercice fait en cours */
+programme bonjour_10_fois
+déclarations
+  variable b en entier
+début
+  pour b variant de 0 à 10 par pas de 1 /* for (i = 0, i = 10, i++) */
+    écrire("Bonjour")
+  finpour
+fin
