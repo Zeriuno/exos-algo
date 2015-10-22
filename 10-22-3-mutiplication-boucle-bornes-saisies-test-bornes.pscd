@@ -1,0 +1,23 @@
+/* Afficher la table des multiplications du nombre entier saisi par l'utilisateur de var à var2.
+ Répétition d'un exercice fait en cours avec ajout d'un test*/
+
+programme
+déclarations
+  variables multiplié, résultat, multiplicateur, borne_basse, borne_haute, échange en entiers
+début
+  écrire("Saisir un nombre, il sera multiplié : ")
+  lire(multiplié)
+  écrire(... multiplié à partir de... (saisir un nombre) : )
+  lire(borne_basse)
+  écrire(... et jusqu'à... (saisir un nombre) :)
+  lire(borne_haute)
+  si (borne_haute < borne_basse) alors
+    échange ← borne_basse
+    borne_basse ← borne_haute
+    borne_haute ← échange
+  finsi
+  pour multiplicateur variant de borne_basse à borne_haute par pas de 1 faire
+  résultat ← multiplié * multiplicateur
+    écrire(multiplié " x ", multiplicateur " = ", résultat)
+  finpour
+fin
