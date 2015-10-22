@@ -1,0 +1,10 @@
+programme bonjour_tant_que
+déclarations
+  variable cpt en entier
+début
+  cpt ← 0
+  tant que (cpt < 10 ) faire
+    écrire("Bonjour")
+    cpt ← cpt++
+  fintantque
+fin
