@@ -1,0 +1,29 @@
+/* Algorithme de fonctionnement d'une horloge */
+
+programme horloge
+déclarations
+  variables heures, minutes, secondes en entiers
+début
+
+/* Initialiser les variables */
+
+  heures ← 0
+  minutes ← 0
+  secondes ← 0
+
+/* Commencer à compter */
+  tant que (secondes < 60) faire
+  secondes ← secondes++
+    si (secondes = 60) alors
+      secondes ← 0
+      minutes ← minutes++
+    finsi
+    si (minutes = 60) alors
+      minutes ← 0
+      heures ← heures++
+    finsi
+    si (heures = 25) alors
+      heures ← 0
+    finsi
+  fintantque
+fin
