@@ -5,25 +5,25 @@ déclarations
   variables heures, minutes, secondes en entiers
 début
 
-/* Initialiser les variables */
-
+/* Initialiser les variables, tout à fait possible de commencer à une autre heure */
   heures ← 0
   minutes ← 0
   secondes ← 0
 
 /* Commencer à compter */
   tant que (secondes < 60) faire
-  secondes ← secondes++
-    si (secondes = 60) alors
-      secondes ← 0
-      minutes ← minutes++
-    finsi
-    si (minutes = 60) alors
-      minutes ← 0
-      heures ← heures++
-    finsi
-    si (heures = 25) alors
-      heures ← 0
-    finsi
+    /*idéalement, "attendre (1 seconde - temps d'éxécution)"
+    secondes ← secondes++
+        si (secondes = 60) alors
+          secondes ← 0
+          minutes ← minutes++
+            si (minutes = 60) alors
+              minutes ← 0
+              heures ← heures++
+                si (heures = 25) alors
+                  heures ← 0
+                finsi
+            finsi
+        finsi
   fintantque
 fin
