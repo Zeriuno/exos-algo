@@ -12,7 +12,7 @@ début
 
 /* Commencer à compter */
   tant que (secondes < 60) faire
-    /*idéalement ajouter aussi "attendre (1 seconde - temps d'éxécution)" */
+    /*idéalement ajouter aussi "attendre (1 seconde - temps d'exécution)" */
     secondes ← secondes++
         si (secondes = 60) alors
           secondes ← 0
