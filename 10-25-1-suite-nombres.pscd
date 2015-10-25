@@ -20,5 +20,5 @@ début
       finsi
     fintantque
   moyenne ← somme / itérations
-  écrire("La moyenne des chiffres saisis est ", moyenne)
+  écrire("La moyenne des chiffres saisis sur " itérations " saisies est ", moyenne)
 fin
