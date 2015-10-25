@@ -1,0 +1,10 @@
+Un utilisateur saisit des nombres.
+La saisie s'arrête lorsque 2 nombres identiques sont saisis successivement.
+Le dernier nombre ne doit pas être comptabilisé.
+Vous devez Afficher et calculer la moyenne des chiffres saisis.
+
+programme suite_nombres
+déclarations
+  variables
+début
+fin
