@@ -1,0 +1,40 @@
+7.3
+
+Un multiplication peut-être faite en utilisant le signe * mais elle peut également l'être
+par additions successives.
+6 * 3 = 3 + 3 + 3 + 3 + 3 + 3 = 18
+Proposez un algorithme.
+Comment pouvez-vous optimiser cet algorithme ?
+
+programme multiplication_par_additions
+déclarations
+  variables facteur1, facteur2, compteur, résultat en entiers
+début
+  résultat ← 0 /*nécessité de l'affecter, comme elle ne l'est pas autrement*/
+  écrire("Saisir le premier facteur de la multiplication : ")
+  lire(facteur1)
+  écrire("Saisir le deuxième facteur de la multiplication : ")
+  lire(facteur2)
+  pour compteur variant de 1 à facteur1 par pas de 1 faire
+    résultat ← résultat + facteur2
+  finpour
+  écrire(facteur1 " x ", facteur2 " = ", résultat)
+fin
+
+Autrement on pourrait créer n variables où n = facteur1, les affecter en masse avec facteur2 et affecter leur addition au résultat.
+
+programme multiplication_par_addidions_v_alt
+déclarations
+  variables facteur1, facteur2, résultat en entiers /*On n'arrive pas, par contre, à déclarer les variables_n, ce qui rend impossible d'utiliser cet algorithme en C, par exemple*/
+début
+  écrire("Saisir le premier facteur de la multiplication : ")
+  lire(facteur1)
+  écrire("Saisir le deuxième facteur de la multiplication : ")
+  lire(facteur2)
+    pour compteur variant de 1 à facteur1 faire
+      création variable_n
+      variable_n ← facteur2
+    finpour
+  résultat ← Σ(variable_n)
+  écrire(facteur1 " x ", facteur2 " = ", résultat)
+fin
