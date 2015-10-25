@@ -5,6 +5,20 @@ Vous devez Afficher et calculer la moyenne des chiffres saisis.
 
 programme suite_nombres
 déclarations
-  variables
+  variables saisie, dernier, itérations, somme, moyenne en entiers
 début
+  itérations ← 0 /*initialisation du compteur*/
+  dernier ← 0 /*initialisation du dernier*/
+  somme ← 0
+    tant que (saisie != dernier) faire
+    écrire("Saisir un nombre (saisir ", dernier " pour quitter) : ")
+    lire(saisie)
+      si (saisie != dernier) alors
+        somme ← somme + dernier
+        dernier ← saisie
+        itérations ← itérations++
+      finsi
+    fintantque
+  moyenne ← somme / itérations
+  écrire("La moyenne des chiffres saisis est ", moyenne)
 fin
