@@ -1,0 +1,13 @@
+7.1 Factorielle
+
+programme factorielle
+déclarations
+  variables nombre, factorielle, compteur en entiers
+début
+  écrire("Saisir un nombre : ")
+  lire(nombre)
+  factorielle ← 1
+  pour compteur variant de factorielle à nombre par pas de 1
+    factorielle ← factorielle * compteur
+  finpour
+fin
