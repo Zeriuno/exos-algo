@@ -451,3 +451,106 @@ début
   produit ← facteur_1 * facteur_2
   écrire("Le résultat est ", produit)
 fin
+
+
+2015-10-26
+Écrire un algo qui charge un fichier texte dont le nom est saisi par l'utilisateur.
+Ce fichier contient un maximum de 50 notes. Si le fichier ne contient pas 50 notes, il est terminé par -1.
+Les notes sont les unes à la suite des autres:
+
+```
+10
+12
+13
+10,5
+9
+...
+-1
+```
+
+Calculer la moyenne.
+
+programme notes
+déclarations
+  variables nom en chaîne de caractères
+  variables fic en fichier
+  variables compteur en entiers
+  variables note, total, moyenne en réels
+début
+  écriture("Saisir le nom du fichier à lire : ")
+  lire(nom)
+  fic ← ouvrir(nom, "lecture", "texte")
+  compteur ← 0 /* initialisation de la variable */
+  total ← 0 /* initialisation de la variable */
+  tant que (!Findefichier(fic)) faire
+    lire(fic, note)
+    total ← total + note
+    compteur ← compteur++
+      si (note = -1) alors
+        total ← total + 1
+        compteur ← compteur - 1
+      finsi
+  fintantque
+  fermer(fic)
+  moyenne ← total / compteur
+  écrire("La moyenne de ces ", compteur " notes est ", moyenne)
+fin
+
+programme notes
+déclarations
+  variables nom, ligne en chaîne de caractères
+  variables fic en fichier
+  variables compteur en entiers
+  variables note, total, moyenne en réels
+début
+  écriture("Saisir le nom du fichier à lire : ")
+  lire(nom)
+  fic ← ouvrir(nom, "lecture", "texte")
+  compteur ← 0 /* initialisation de la variable */
+  total ← 0 /* initialisation de la variable */
+  moyenne ← o /* initialisation non nécessaire de manière rigoureuse (moyenne est affecté), mais peut-être nécessaire pour le C */
+  tant que (!Findefichier(fic)) faire /* ou bien ajouter "ou (note <> -1)" et ajouter la lecture avant la boucle, et initialiser le compteur à 1 */
+    lire(fic, ligne)
+    note ← numérique(ligne)
+    total ← total + note
+    compteur ← compteur++
+      si (note = -1) alors
+        total ← total + 1
+        compteur ← compteur - 1
+      finsi
+  fintantque
+  fermer(fic)
+  moyenne ← total / compteur
+  écrire("La moyenne de ces ", compteur " notes est ", moyenne)
+fin
+
+
+Autre possibilité
+
+programme notes
+déclarations
+  variables nom, ligne en chaîne de caractères
+  variables fic en fichier
+  variables compteur en entiers
+  variables note, total, moyenne en réels
+début
+  écriture("Saisir le nom du fichier à lire : ")
+  lire(nom)
+  fic ← ouvrir(nom, "lecture", "texte")
+  compteur ← 0 /* initialisation de la variable */
+  total ← 0 /* initialisation de la variable */
+  moyenne ← o /* initialisation non nécessaire de manière rigoureuse (moyenne est affecté), mais peut-être nécessaire pour le C */
+  tant que (!Findefichier(fic)) faire
+    lire(fic, ligne)
+    note ← numérique(ligne)
+    total ← total + note
+    compteur ← compteur++
+  fintantque
+  fermer(fic)
+  si (note = -1) alors
+    total ← total + 1
+    compteur ← compteur - 1
+  finsi
+  moyenne ← total / compteur
+  écrire("La moyenne de ces ", compteur " notes est ", moyenne)
+fin
