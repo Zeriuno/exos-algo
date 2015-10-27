@@ -1,0 +1,24 @@
+Saisir des notes au clavier
+-1 pour arrêter la saisie (à écrire)
+50 notes max (test)
+Écrire dans un fichier
+
+programme saisie_notes
+déclarations
+  variable liste_notes en fichiers
+  variable note en chaîne de caractères
+  variable compteur en entiers
+début
+  note ← 0
+  tantque((note <> -1) et (compteur < 51)) faire
+    écrire("Saisir la note : ")
+    lire(note)
+    ajouter(liste_notes, note)
+    compteur ← compteur++
+  fintantque
+  si(compteur = 50) alors
+    écrire("Fichier plein, écriture terminée.")
+  si(note = -1) alors
+    écrire("Vous avez rentré la note -1, qui clôt la saisie. Écriture terminée.")
+  finsi
+fin
