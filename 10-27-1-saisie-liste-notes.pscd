@@ -6,16 +6,21 @@ Saisir des notes au clavier
 programme saisie_notes
 déclarations
   variable liste_notes en fichiers
-  variable note en chaîne de caractères
+  variable note, nom_fichier en chaîne de caractères
   variable compteur en entiers
 début
-  note ← 0
+  écrire("Saisir le nom du fichier dans lequel on stockera les notes : ")
+  lire(nom_fichier)
+  note ← 0 /* initialisation de la variable */
+  compteur ← 0 /* initialisation de la variable */
+  liste_notes ← ouvrir(nom_fichier, "écriture", "texte")
   tantque((note <> -1) et (compteur < 51)) faire
     écrire("Saisir la note : ")
     lire(note)
-    ajouter(liste_notes, note)
+    écrire(liste_notes, note)
     compteur ← compteur++
   fintantque
+  fermer(liste_notes)
   si(compteur = 50) alors
     écrire("Fichier plein, écriture terminée.")
   si(note = -1) alors
