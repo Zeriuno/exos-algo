@@ -554,3 +554,45 @@ début
   moyenne ← total / compteur
   écrire("La moyenne de ces ", compteur " notes est ", moyenne)
 fin
+
+
+Ajouter des notes dans un fichier déjà partiellement rempli:
+
+12
+15
+17,5
+-1
+
+ouvrir en lecture, charger et stocker le contenu, modifier le contenu, écriture
+
+
+Écrire un algo qui charge un fichier texte dont le nom est saisi par l'utilisateur.
+Ce fichier contient un maximum de 50 notes.
+Calculer la moyenne une fois le fichier chargé et fermé (afin de réduir le temps d'ouverture du fichier).
+
+programme notes_via_structure
+déclarations
+  variable notes en tableau [50] d'entiers
+  variable liste_notes en fichiers
+  variable tab, borne en entiers
+  variable note en chaîne de caractères
+  variables total, moyenne en réels
+début
+  pour tab variant de 1 à 50 par pas de 1 faire
+    notes[tab] ← -1
+  finpour
+  tab ← 1 /*la variable était à 50, on va redémarrer, du coup on la remet à 1*/
+  liste_notes ← ouvrir(liste_notes, "lecture", "texte")
+  tantque(!Findefichier) faire
+    lire(liste_notes, note)
+    notes[tab] ← numérique(note)
+    tab ← tab++
+  fintantque
+  fermer(liste_notes)
+  borne ← tab /* je garde trace de combien itérations on a fait afin de minimiser le travail de la boucle qui me permet de calculer la moyenne */
+  somme ← 0 /* initialisation */
+  pour tab variant de 1 à borne par pas de 1 faire
+    somme ← somme + notes[tab]
+  finpour
+  moyenne ← somme / tab
+fin
