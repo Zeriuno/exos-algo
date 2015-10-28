@@ -596,3 +596,123 @@ début
   finpour
   moyenne ← somme / tab
 fin
+
+Correction de M. Jacquenod
+
+programme notes_via_tableau
+déclarations
+  constante nb_max_notes ← 50
+  variable notes en tableau [nb_max_notes] d'entiers
+  variable liste_notes en fichiers
+  variable tab, tab2borne en entiers
+  variable note en chaîne de caractères
+  variables total, moyenne en réels
+début
+  pour tab variant de 1 à nb_max_notes par pas de 1 faire
+    notes[tab] ← -1
+  finpour
+  tab ← 0 /*la variable était à 50, on va redémarrer, du coup on la remet à 0, 0 afin que tab sorte de la boucle avec la valeur qui indique le nombre de notes lues*/
+  liste_notes ← ouvrir("notes.txt", "lecture", "texte")
+  tantque(!Findefichier(liste_notes)) faire
+    tab ← tab++
+    lire(liste_notes, note)
+    notes[tab] ← numérique(note)
+  fintantque
+  fermer(liste_notes)
+  borne ← tab /* je garde trace de combien itérations on a fait afin de minimiser le travail de la boucle qui me permet de calculer la moyenne */
+  somme ← 0 /* initialisation */
+  pour tab variant de 1 à borne par pas de 1 faire
+    somme ← somme + notes[tab]
+  finpour
+  moyenne ← somme / tab
+fin
+
+Fichier notes (max 50). Y écrire, si il y a de la place, une nouvelle note au début.
+
+programme insertion_note
+déclarations
+  constante NB_MAX_NOTES ← 50
+  variable liste_notes en fichiers
+  variable tab_notes en tableau [NB_MAX_NOTES] de chaînes de caractères
+  variable note, nom, ajout en chaîne de caractères
+  variable cpt, cpt2 en entiers
+début
+  pour cpt variant de 1 à NB_MAX_NOTES par pas de 1 faire
+    tableau[cpt] ← -1
+  finpour
+  écrire("Saisir le nom du fichier : ")
+  lire(nom)
+  liste_notes ← ouvrir(nom, "lecture", "texte")
+  cpt ← 1 /* initialisation */
+  tantque(!Findefichier(liste_notes)) faire
+    lire(liste_notes, tab_notes[NB_MAX_NOTES])
+  fintantque
+  fermer(liste_notes)
+  si(cpt > NB_MAX_NOTES-1) alors
+    écrire("Le fichier est plein.")
+  sinon
+    écrire("Il reste de la place dans le fichier. Saisir la note à ajouter dans la première place : ")
+    lire(ajout)
+    liste_notes ← ouvrir(nom, "écriture", "texte")
+    écrire(liste_notes, ajout)
+    pour cpt2 variant de 1 à cpt par pas de 1 faire
+      écrire(liste_notes, tab_notes[cpt2])
+    finpour
+    fermer(liste_notes)
+    écrire("La note a bien été ajoutée.")
+  finsi
+fin
+
+
+programme insertion_note /*variante avec tableau à NB_MAX_NOTES+1*/
+déclarations
+  constante NB_MAX_NOTES ← 50
+  variable fic en fichiers
+  variable tab_notes en tableau [NB_MAX_NOTES + 1] de chaînes de caractères
+  variable note, nom, ajout en chaîne de caractères
+  variable cpt, cpt2 en entiers
+début
+  pour cpt variant de 1 à NB_MAX_NOTES + 1 par pas de 1 faire
+    tableau[cpt] ← -1
+  finpour
+  écrire("Saisir le nom du fichier : ")
+  lire(nom)
+  fic ← ouvrir(nom, "lecture", "texte")
+  cpt ← 2 /* initialisation à deux afin de laisser la première case vide*/
+  tantque(!Findefichier(fic)) faire
+    lire(fic, tab_notes[NB_MAX_NOTES])
+    cpt ← cpt++
+  fintantque
+  fermer(fic)
+  si(cpt > NB_MAX_NOTES) alors
+    écrire("Le fichier est plein.")
+  sinon
+    écrire("Il reste de la place dans le fichier. Saisir la note à ajouter dans la première place : ")
+    lire(tab_notes[1])
+    fic ← ouvrir(nom, "écriture", "texte")
+    pour cpt2 variant de 1 à cpt par pas de 1 faire
+      écrire(fic, tab_notes[cpt2])
+    finpour
+    fermer(fic)
+    écrire("La note a bien été ajoutée.")
+  finsi
+fin
+
+Faire une variante pour stocker la nouvelle note à n'importe quelle place.
+
+programme insertion_note_place_choix
+déclarations
+  constante NB_MAX_NOTES ← 50
+  variable fic en fichiers
+  variable tab_notes en tableau [NB_MAX_NOTES] de chaînes de caractères
+  variable cpt en entiers
+début
+  écrire("Saisir l'emplacement de la nouvelle note : ")
+  lire(place)
+  pour cpt variant de 1 à place -1 par pas de 1 faire
+    écrire(Fic, tab_notes[cpt])
+  finpour
+  écrire(Fic, note_ajout)
+  pour cpt variant de place + 1 à borne + 1 par pas de 1 faire
+    écrire(Fic, tab_notes[cpt])
+fin

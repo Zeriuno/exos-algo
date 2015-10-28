@@ -1,0 +1,34 @@
+/* Version avec plus de choses, dialogues, affichages... */
+
+programme notes_via_tableau
+déclarations
+  variable notes en tableau [50] d'entiers
+  variable liste_notes en fichiers
+  variable tab, borne en entiers
+  variable note,nom_liste_notes en chaîne de caractères
+  variables total, moyenne en réels
+début
+/* initialisation du tableau */
+  pour tab variant de 1 à 50 par pas de 1 faire
+    notes[tab] ← -1
+  finpour
+  tab ← 1 /*la variable était à 50, on va redémarrer, du coup on la remet à 1. Comme on est dans un algorithme, on la met à 1, si c'était du C on la mettrait à 0, car les tableaux en C commencent à 0.*/
+
+  écrire("Saisir le nom du fichier à ouvrir : ")
+  lire(nom_liste_notes)
+
+  liste_notes ← ouvrir(nom_liste_notes, "lecture", "texte")
+  tantque(!Findefichier(liste_notes)) faire
+    lire(liste_notes, note)
+    notes[tab] ← numérique(note)
+    tab ← tab++
+  fintantque
+  fermer(liste_notes)
+  borne ← tab /* je garde trace de combien itérations on a fait afin de minimiser le travail de la boucle qui me permet de calculer la moyenne */
+  somme ← 0 /* initialisation */
+  pour tab variant de 1 à borne par pas de 1 faire
+    somme ← somme + notes[tab]
+  finpour
+  moyenne ← somme / tab
+  écrire("La moyenne est ", moyenne ". Voici les notes ", notes[tab])
+fin
