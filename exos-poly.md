@@ -570,7 +570,7 @@ ouvrir en lecture, charger et stocker le contenu, modifier le contenu, écriture
 Ce fichier contient un maximum de 50 notes.
 Calculer la moyenne une fois le fichier chargé et fermé (afin de réduir le temps d'ouverture du fichier).
 
-programme notes_via_structure
+programme notes_via_tableau
 déclarations
   variable notes en tableau [50] d'entiers
   variable liste_notes en fichiers
@@ -583,7 +583,7 @@ début
   finpour
   tab ← 1 /*la variable était à 50, on va redémarrer, du coup on la remet à 1*/
   liste_notes ← ouvrir(liste_notes, "lecture", "texte")
-  tantque(!Findefichier) faire
+  tantque(!Findefichier(liste_notes)) faire
     lire(liste_notes, note)
     notes[tab] ← numérique(note)
     tab ← tab++
