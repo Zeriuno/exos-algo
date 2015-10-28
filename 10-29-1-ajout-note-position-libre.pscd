@@ -1,0 +1,36 @@
+Fichier avec des notes (Max 50)
+Si il y a de la place, on ajoute une note.
+Faire une variante pour stocker la nouvelle note à n'importe quelle place.
+
+programme insertion_note_place_choix
+déclarations
+  constante NB_MAX_NOTES ← 50
+  variable fic en fichiers
+  variable tab_notes en tableau [NB_MAX_NOTES] de chaînes de caractères
+  variable nom_fichier, note_ajout en chaîne de caractères
+  variable cpt, cpt2 en entiers
+début
+  pour cpt variant de 1 à NB_MAX_NOTES par pas de 1 faire
+    tab_notes[cpt] ← -1
+  finpour
+  écrire("Saisir le nom du fichier : ")
+  lire(nom_fichier)
+  fic ← ouvrir(nom_fichier, "lecture", "texte")
+  pour cpt variant de 1 à NB_MAX_NOTES par pas de 1 faire
+    lire(fic, tab_notes[cpt])
+  finpour
+  si cpt > 49 alors
+    écrire("Le fichier de notes est plein!")
+  sinon
+    écrire("Saisir la nouvelle note : ")
+    lire(note_ajout)
+    écrire("Saisir l'emplacement de la nouvelle note : ")
+    lire(place)
+    pour cpt variant de 1 à place -1 par pas de 1 faire
+      écrire(Fic, tab_notes[cpt])
+    finpour
+    écrire(Fic, note_ajout)
+    pour cpt2 variant de place + 1 à cpt + 1 par pas de 1 faire
+      écrire(Fic, tab_notes[cpt])
+  finsi
+fin
