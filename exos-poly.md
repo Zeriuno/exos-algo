@@ -697,22 +697,3 @@ début
     écrire("La note a bien été ajoutée.")
   finsi
 fin
-
-Faire une variante pour stocker la nouvelle note à n'importe quelle place.
-
-programme insertion_note_place_choix
-déclarations
-  constante NB_MAX_NOTES ← 50
-  variable fic en fichiers
-  variable tab_notes en tableau [NB_MAX_NOTES] de chaînes de caractères
-  variable cpt en entiers
-début
-  écrire("Saisir l'emplacement de la nouvelle note : ")
-  lire(place)
-  pour cpt variant de 1 à place -1 par pas de 1 faire
-    écrire(Fic, tab_notes[cpt])
-  finpour
-  écrire(Fic, note_ajout)
-  pour cpt variant de place + 1 à borne + 1 par pas de 1 faire
-    écrire(Fic, tab_notes[cpt])
-fin
