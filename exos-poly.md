@@ -678,9 +678,9 @@ début
   écrire("Saisir le nom du fichier : ")
   lire(nom)
   fic ← ouvrir(nom, "lecture", "texte")
-  cpt ← 1 /* initialisation à deux afin de laisser la première case vide*/
+  cpt ← 1 /* initialisation à un afin de progresser à deux dès le début et laisser la première case vide*/
   tantque(!Findefichier(fic)) faire
-    cpt ← cpt++
+    cpt ← cpt++ /*avant afin de compter de manière exacte*/
     lire(fic, tab_notes[NB_MAX_NOTES])
   fintantque
   fermer(fic)
