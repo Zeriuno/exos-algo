@@ -673,15 +673,15 @@ déclarations
   variable cpt, cpt2 en entiers
 début
   pour cpt variant de 1 à NB_MAX_NOTES + 1 par pas de 1 faire
-    tableau[cpt] ← -1
+    tableau[cpt] ← "-1" /* C'est une chaîne de caractères */
   finpour
   écrire("Saisir le nom du fichier : ")
   lire(nom)
   fic ← ouvrir(nom, "lecture", "texte")
-  cpt ← 2 /* initialisation à deux afin de laisser la première case vide*/
+  cpt ← 1 /* initialisation à deux afin de laisser la première case vide*/
   tantque(!Findefichier(fic)) faire
-    lire(fic, tab_notes[NB_MAX_NOTES])
     cpt ← cpt++
+    lire(fic, tab_notes[NB_MAX_NOTES])
   fintantque
   fermer(fic)
   si(cpt > NB_MAX_NOTES) alors
