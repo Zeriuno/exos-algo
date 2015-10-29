@@ -6,7 +6,7 @@ déclarations
   variables cpt, cpt2, cpt_étudiants, cpt_notes, nb_matières en entiers
   variables note, notes_somme, notes_combien_chaîne en réels
   variable fic en fichiers
-  variables tab_notes en tableau [MAX_ÉTUDIANTS] [MAX_NOTES] de réels  /*MAX_NOTES + 2 afin de garder trace de combien de notes on a et de la moyenne*/
+  variables tab_notes en tableau [MAX_ÉTUDIANTS] [MAX_NOTES] de réels
   variabes tab_moyennes en tableau [MAX_ÉTUDIANTS] de réels
   variable tab_étudiants [MAX_ÉTUDIANTS] de chaînes de caractères
 début

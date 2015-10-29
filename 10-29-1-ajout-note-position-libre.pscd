@@ -34,3 +34,5 @@ début
       écrire(Fic, tab_notes[cpt])
   finsi
 fin
+
+Ajouter tests sur NB_MAX
