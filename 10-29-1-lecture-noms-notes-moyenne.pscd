@@ -1,0 +1,64 @@
+programme lecture_étudiant_notes_matières_moyenne
+déclarations
+  constante MAX_ÉTUDIANTS ← 20
+  constante MAX_NOTES ← 10
+  variables nom, liste_notes, notes_combien, note_chaîne en chaîne de caractères
+  variables cpt, cpt2, cpt_étudiants, cpt_notes, nb_matières en entiers
+  variables note, notes_somme, notes_combien_chaîne en réels
+  variable fic en fichiers
+  variables tab_notes en tableau [MAX_ÉTUDIANTS] [MAX_NOTES] de réels  /*MAX_NOTES + 2 afin de garder trace de combien de notes on a et de la moyenne*/
+  variabes tab_moyennes en tableau [MAX_ÉTUDIANTS] de réels
+  variable tab_étudiants [MAX_ÉTUDIANTS] de chaînes de caractères
+début
+
+/*initialisation des tableaux*/
+
+  pour cpt variant de 1 à MAX_ÉTUDIANTS faire
+    tab_étudiants[cpt] ← NULL
+    tab_moyennes[cpt] ← -1
+    pour cpt_notes variant de 1 à MAX_NOTES + 2 faire
+      tab_notes[cpt][cpt_notes] ← -1
+    finpour
+  finpour
+
+/*récupération du fichier*/
+
+  écrire("Saisir le nom du fichier : ")
+  lire(liste_notes)
+  fic ← ouvrir(liste_notes, "lecture", "texte")
+
+/*récupération des informations du fichier*/
+
+  cpt_étudiants ← 0 /*initialisation de la variable */
+  tant que (!Findefichier(fic)) faire
+    cpt_étudiants ← cpt_étudiants++
+    lire(fic, tab_étudiants[cpt_étudiants], notes_combien_chaine)
+    notes_combien ← numérique(notes_combien_chaine)
+    pour cpt_notes variant de 1 à notes_combien par pas de 1 faire
+      lire(fic, note_chaîne)
+      tab_notes[cpt_étudiants][cpt_notes] ← numérique(note_chaîne)
+    finpour
+  fintantque
+  fermer(fic)
+
+/*calcul de la moyenne, stockée dans un tableau à part*/
+
+  somme ← 0 /*initialisation*/
+  cpt2 ← 0 /*initialisation*/
+  pour cpt variant de 1 à cpt_étudiants par pas de 1 faire
+    tant que tab_notes[cpt][cpt2] > -1 faire
+      cpt2 ← cpt2++
+      somme ← somme + tab_notes[cpt][cpt2]
+    fintantque
+    tab_moyenne[cpt] ← somme / cpt2
+  finpour
+  pour cpt variant de 1 à cpt_étudiants par pas de 1 faire
+    écrire("Notes de ", tab_étudiants[cpt] " : ")
+    cpt2 ← 0  /*initialisation*/
+    tantque tab_notes[cpt][cpt2] > -1
+      cpt2 ← cpt2++
+      écrire("\n", tab_notes[cpt][cpt2])
+    finpour
+    écrire("Moyenne de ", tab_étudiants[cpt] " : " tab_moyenne[cpt])
+  finpour
+fin
