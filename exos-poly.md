@@ -632,7 +632,7 @@ Fichier notes (max 50). Y écrire, si il y a de la place, une nouvelle note au d
 programme insertion_note
 déclarations
   constante NB_MAX_NOTES ← 50
-  variable liste_notes en fichiers
+  variable fic en fichiers
   variable tab_notes en tableau [NB_MAX_NOTES] de chaînes de caractères
   variable note, nom, ajout en chaîne de caractères
   variable cpt, cpt2 en entiers
