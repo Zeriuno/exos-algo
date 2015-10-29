@@ -1,0 +1,81 @@
+/* Un	fichier	texte	est	constitué	des	informations	suivantes
+nom	nb_note	note1	note2	note3	note4	...	noten
+Proposez	un	algorithme	qui	charge	les	informations	dans	une	ou	plusieurs	structures	et
+qui	affiche	ensuite	la	moyenne	de	chaque	étudiant.	Ce	calcul	doit	se	faire	une	fois	l’accès
+au	fichier	fermé.
+L’affichage	se	fait	comme	suit	(vous	devez	afficher	tous	les	élèves):
+Notes	de	Dupont	:	12	14,5	13
+Moyenne	de	Dupont	:	13,2
+...
+
+On	suppose	qu’une	note	est	forcément	positive.
+Il	n’y	a	pas	plus	de	20	lignes	dans	un	fichier.
+Il	n’y	a	pas	plus	de	10	notes	sur	une	ligne.	Attention	le	nombre	de	notes	n’est	pas	forcément	identique	pour	chaque	élève	et	est
+déterminé	par	la	valeur	nb_note	(2 ème 	position	sur	une	ligne)	dans	le	fichier.
+Dupont	3	12	14,5	13
+Durand	5	6	18,3	7	9	12
+Lery	6	20	20	20	20	20	20
+
+Affichage:
+
+Notes Dupont :
+3
+12
+14,5
+13
+
+Moyenne de Dupont : [moyenne]
+*/
+
+programme lecture_notes_matières_moyenne_étudiant
+déclarations
+  constante MAX_ÉTUDIANTS ← 20
+  constante MAX_NOTES ← 10
+  variables nom, liste_notes, notes_combien, note_chaîne en chaîne de caractères
+  variables cpt, cpt2, cpt_étudiants, cpt_notes, nb_matières en entiers
+  variables note, notes_somme en réels
+  variable fic en fichiers
+  variable tab_notes en tableau [MAX_ÉTUDIANTS] [MAX_NOTES + 2] de réels /*MAX_NOTES + 2 afin de garder trace de combien de notes on a et de la moyenne*/
+  variable tab_étudiants [MAX_ÉTUDIANTS] de chaînes de caractères
+début
+
+/*initialisation des tableaux*/
+
+  pour cpt variant de 1 à MAX_ÉTUDIANTS faire
+    tab_étudiants[cpt] ← NULL
+    pour cpt_notes variant de 1 à MAX_NOTES + 2 faire
+      tab_notes[cpt][cpt_notes] ← -1
+    finpour
+  finpour
+  écrire("Saisir le nom du fichier : ")
+  lire(liste_notes)
+  fic ← ouvrir(liste_notes, "lecture", "texte")
+  cpt_étudiants ← 0 /*initialisation de la variable */
+  tant que (!Findefichier(fic)) faire
+    cpt_étudiants ← cpt_étudiants++
+    lire(fic, tab_étudiants[cpt_étudiants])
+    lire(fic, notes_combien)
+    nb_matières ← numérique(notes_combien)
+    tab_notes[cpt][2] ← nb_matières /*On met le nombre de notes à la deuxième place, car la possibilité de confondre la moyenne avec une note est plus grande*/
+    pour cpt_notes variant de 3 à nb_matières par pas de 1 faire
+      lire(fic, note_chaîne)
+      tab_notes[cpt_étudiants][cpt_notes] ← numérique(note_chaîne)
+    finpour
+  fintantque
+  fermer(fic)
+  somme ← 0
+  pour cpt variant de 1 à cpt_étudiants par pas de 1 faire
+    cpt_notes ← tab_notes[cpt][2]
+    pour cpt2 variant de 3 à cpt_notes par pas de 1 faire
+      somme ← somme + tab_notes[cpt][cpt2]
+    finpour
+    tab_notes[cpt][1] ← somme / cpt2
+  finpour
+  pour cpt variant de 1 à cpt_étudiants par pas de 1 faire
+    écrire("Notes de ", tab_étudiants[cpt] " : ")
+    pour cpt2 variant de 3 à tab_étudiants[cpt][2] faire
+      écrire("\n", tab_notes[cpt][cpt2])
+    finpour
+    écrire("Moyenne de ", tab_étudiants[cpt] " : " tab_notes[cpt][1])
+  finpour
+fin
