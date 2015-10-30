@@ -54,10 +54,10 @@ début
   finpour
   pour cpt variant de 1 à cpt_étudiants par pas de 1 faire
     écrire("Notes de ", tab_étudiants[cpt] " : ")
-    cpt2 ← 0  /*initialisation*/
+    cpt2 ← 1  /*initialisation, forcément à 1, car la case 0 du tableau n'existe pas*/
     tantque tab_notes[cpt][cpt2] > -1
-      cpt2 ← cpt2++
       écrire("\n", tab_notes[cpt][cpt2])
+      cpt2 ← cpt2++
     finpour
     écrire("Moyenne de ", tab_étudiants[cpt] " : " tab_moyenne[cpt])
   finpour
