@@ -697,3 +697,77 @@ début
     écrire("La note a bien été ajoutée.")
   finsi
 fin
+
+
+V.5 refait avec la structure
+
+Charger le fichier, afficher, en calculant la moyenne
+
+programme affichage_resultats_et_moyenne
+déclarations
+  constante NB_MAX_ÉLÈVES ← 20
+  constante NB_MAX_NOTES ← 10
+  type élève en enregistrement
+    champ nom en chaîne de caractères
+    champ notes_nb en entiers
+    champ notes en tableau[NB_MAX_NOTES] de réels
+  fin d'enregistrement
+  variable élèves en tableau[NB_MAX_ÉLÈVES] en élève
+  variable fic en fichiers
+  variables nom_fichier, notes_nb_ch, mention en chaîne de caractères
+  variables cpt_étudiants, cpt_notes en entiers
+  variables moyenne, somme en réels
+début
+
+/*initialisation du tableau*/
+  pour cpt_étudiants variant de 1 à NB_MAX_ÉLÈVES par pas de 1 faire
+  élèves[cpt_étudiants].nom ← NULL
+  élèves[cpt_étudiants].notes ← -1
+    pour cpt_notes variant de 1 à NB_MAX_ÉLÈVES par pas de 1 faire
+      élèves[cpt_étudiants].notes[cpt_notes] ← -1
+    finpour
+  finpour
+
+/*récupération du fichier*/
+  écrire("Saisir le nom du fichier : ")
+  lire(nom_fichier)
+  fic ← ouvrir(nom_fichier, "lecture", "texte")
+
+/*chargement du contenu du fichier dans l'enregistrement*/
+  cpt_étudiants ← 1
+  tantque(!findefichier(fic)) faire
+    lire(fic, élèves[cpt_étudiants].nom) /*une alternative est d'affecter chaque ligne du tableau à l'enregistrement, version simple et non tableau*/
+    /*lire(fic, élèves[cpt_étudiants].notes_nb) version paresseuse*/
+    lire(fic, notes_nb_ch)
+    élèves[cpt_étudiants.notes_nb] ← numérique(notes_nb_ch)
+    pour cpt_notes variant de 1 à élèves[cpt_étudiants].notes_nb par pas de 1 faire
+      lire(fic, élèves[cpt_étudiants].notes[cpt_notes])
+    finpour
+    cpt_étudiants ← cpt_étudiants++
+  fintantque
+  fermer(fic)
+  tantque cpt < cpt_étudiants faire
+    écrire("Notes de ", élèves[cpt].nom " : ", élèves[cpt].notes[1])
+    somme ← 0
+    pour cpt_notes variant de 2 à élèves[cpt].notes_nb par pas de 1 faire
+      écrire(" ", élèves[cpt].notes[cpt_notes])
+      somme ← somme + élèves[cpt].notes[cpt_notes]
+    finpour
+    moyenne ← somme / élèves[cpt].notes_nb
+    écrire("Moyenne : " moyenne)
+/*    si(moyenne < 10) alors
+      écrire("Ajourné")
+    sinon
+      écrire("Admis")
+    finsi*/
+    selonque moyenne alors
+      cas 10 < moyenne < 12: mention ← ("Admis") fincas
+      cas 12 < moyenne < 14: mention ← ("Assez bien") fincas
+      cas 14 < moyenne < 16: mention ← ("Bien") fincas
+      cas 16 < moyenne < 18: mention ← ("Très bien") fincas
+      cas 18 < moyenne: mention ← ("Très honnorable") fincas
+      cas par défaut: mention ← ("Ajourné") fincas /* cas moyenne < 10 :*/
+    finselonque
+    écrire(mention)
+  fintantque
+fin
