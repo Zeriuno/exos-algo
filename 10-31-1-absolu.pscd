@@ -1,0 +1,18 @@
+Valeur absolue d'un nombre saisi par l'utilisateur.
+
+Jeu de tests: 5, 0, -5
+
+programme valeur_absolue
+déclarations
+  variables nombre_saisi, valeur_absolue en réels
+début
+  écrire("Saisir un nombre : ")
+  lire(nombre_saisi)
+  écrire("Je calcule la valeur absolue...")
+  si (nombre_saisi >= 0) alors
+    valeur_absolue ← nombre_saisi
+  sinon
+    valeur_absolue ← nombre_saisi * -1
+  finsi
+  écrire("La valeur absolue de ", nombre_saisi " est ", valeur_absolue)
+fin
