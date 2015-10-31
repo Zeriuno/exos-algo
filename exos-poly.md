@@ -747,13 +747,13 @@ début
   fintantque
   fermer(fic)
   tantque cpt < cpt_étudiants faire
-    écrire("Notes de ", élèves[cpt].nom " : ", élèves[cpt].notes[1])
+    écrire("Notes de ", élèves[cpt].nom " :")
     somme ← 0
-    pour cpt_notes variant de 2 à élèves[cpt].notes_nb par pas de 1 faire
+    pour cpt_notes variant de 1 à élèves[cpt].notes_nb par pas de 1 faire
       écrire(" ", élèves[cpt].notes[cpt_notes])
       somme ← somme + élèves[cpt].notes[cpt_notes]
     finpour
-    moyenne ← somme / élèves[cpt].notes_nb
+    moyenne ← somme / élèves[cpt].notes_nb /*ou plutôt "somme / cpt_notes"*/
     écrire("Moyenne : " moyenne)
 /*    si(moyenne < 10) alors
       écrire("Ajourné")
@@ -761,12 +761,12 @@ début
       écrire("Admis")
     finsi*/
     selonque moyenne alors
-      cas 10 < moyenne < 12: mention ← ("Admis") fincas
+      cas 10 < moyenne < 12: mention ← ("Admis")      fincas
       cas 12 < moyenne < 14: mention ← ("Assez bien") fincas
-      cas 14 < moyenne < 16: mention ← ("Bien") fincas
-      cas 16 < moyenne < 18: mention ← ("Très bien") fincas
+      cas 14 < moyenne < 16: mention ← ("Bien")       fincas
+      cas 16 < moyenne < 18: mention ← ("Très bien")  fincas
       cas 18 < moyenne: mention ← ("Très honnorable") fincas
-      cas par défaut: mention ← ("Ajourné") fincas /* cas moyenne < 10 :*/
+      cas par défaut: mention ← ("Ajourné")           fincas /* cas moyenne < 10 :*/
     finselonque
     écrire(mention)
   fintantque
