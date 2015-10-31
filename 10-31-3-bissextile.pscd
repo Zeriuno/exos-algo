@@ -1,0 +1,17 @@
+Année bissextile
+
+* divisible par 4 mais pas par 100
+* divisible par 400
+
+programme test_bissextile
+déclarations
+  variables année en entiers
+début
+  écrire("Saisir l'année : ")
+  lire(année)
+  si (((année % 4 = 0) ET !(année % 100 = 0) OU (année % 400 = 0)))
+    écrire("L'année saisie, ", année " est bissextile.")
+  sinon
+    écrire("L'année saisie n'est pas bissextile.")
+  finsi
+fin
