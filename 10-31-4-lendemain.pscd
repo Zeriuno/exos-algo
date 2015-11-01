@@ -76,24 +76,22 @@ finsi
 tantque (jour > 31) faire
   écrire("Saisir le jour : ")
   lire(jour)
-  si (jour > 28) alors
-    /*aucun mois n'a plus de 31 jours*/
-    si (jour > 31) alors
-      écrire("Oui, bien sûr, fais ton malin.")
+
+  /*tests pour Février au début afin de ne pas faire passer ce jour par les autres tests, inutiles*/
+  si (mois = 2)
+    si ((jour = 29 ) ET (bissextile = 1)) alors
+      écrire("Cette année, " année ", n'est pas bissextile : le 29 Février ", année " n'existe pas.")
+      tantque (jour > 28) faire
+        écrire("Saisir le jour : ")
+        lire("jour")
+        si (jour > 28) alors
+          écrire("Tu n'as pas compris, toi?")
+        finsi
+      fintantque
     finsi
-    si (mois = 2)
-      si ((jour = 29 ) ET (bissextile = 1)) alors
-        écrire("Cette année, " année " n'est pas bissextile : le 29 Février n'existe pas.")
-        tantque (jour > 28) faire
-          écrire("Saisir le jour : ")
-          lire("jour")
-          si (jour > 28) alors
-            écrire("Tu n'as pas compris, toi?")
-          finsi
-        fintantque
-      finsi
-    finsi
-  /*certains mois n'ont que 30 jours*/
+  finsi
+
+  /*Certains mois n'ont que 30 jours*/
     si (jour > 30) alors
       si (court = 0) alors
         écrire("Attention, tu as choisi ", mois_nom " qui n'a que 30 jours.")
