@@ -48,7 +48,7 @@ tantque (mois > 12) faire
   finsi
 
 /*
-  Test pour affecter la valeur court, qui nous indiquera si le mois est de 30 (court = 0) ou 31 jours (court = 1). Le troisième cas est le mois de Février.
+  Test pour affecter la valeur court, qui nous indiquera si le mois est de 30 (court = 0) ou 31 jours (court = 1). Le troisième cas est le mois de Février (court = 2).
 */
   si (mois = (1 OU 3 OU 5 OU 7 OU 8 OU 10 OU 12)) alors
     court = 1
