@@ -1,0 +1,28 @@
+programme lendemain
+déclarations
+  variables jour, mois, année en entiers
+début
+
+/*initialisation des variables avec une valeur qui leur permette de rentrer dans les boucles de test*/
+
+jour ← 100
+mois ← 100
+année ← 0
+
+tantque
+  écrire("Saisir le mois : ")
+fin
+
+tantque (jour > 31) faire
+  écrire("Saisir le jour : ")
+  lire(jour)
+  si (jour > 31) alors
+    écrire("Connard.")
+  finsi
+fintantque
+
+
+Agenda
+
+une année
+12 mois
