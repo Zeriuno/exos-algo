@@ -1,35 +1,42 @@
 programme lendemain
 déclarations
-  variables jour, hier, mois, mois_hier court, année, année_hier en entiers
+  variables jour, hier, mois, mois_hier, court, année, année_hier en entiers
   variable mois_nom en chaîne de caractères
   variables bissextile en booléen
 début
 
 /*
   Initialisation des variables avec une valeur qui leur permette de rentrer dans les boucles de test.
-  Comme nous avons réservé un entier, 100 n'est pas une valeur qui pren plus de place qu'une autre valeur tout aussi invalide.
+  Comme nous avons réservé un entier, 100 n'est pas une valeur qui pren plus de place qu'une autre valeur tout aussi invalide tout en étant bien plus drôle.
 */
 jour ← 100
 mois ← 100
+
+/*
+  L'année, par contre, est mise à zéro, la seule valeure qui n'est pas valide. Quoique, à bien vouloir regarder, on devrait restreindre le domaine de validité à la période couverte par le calendrier grégorien.
+*/
 année ← 0
 
 /*saisie de l'année*/
 tantque (année = 0) faire
   écrire("Saisir l'année : ")
   lire(année)
-  si (année = 0) alors
-    écrire("Peu de gens le savent, mais l'année 0 n'existe pas selon le calendrier chrétien")
-  finsi
 
 /*
-  test pour savoir si l'année est bissextile et affecter la valeur booléenne 'bissextile'.
+  Test pour savoir si l'année est bissextile et affecter la valeur booléenne 'bissextile'.
   vrai = 0
   faux = 1
+  Ce test est exécuté même si l'utilisateur saisit 0. La probabilité que cela se passe est toutefois assez réduite pour prendre ce risque plutôt que d'introduire des tests qui seront sans doute exécutés.
 */
-  si (((année % 4 = 0) ET !(année % 100 = 0) OU (année % 400 = 0))) alors
+  si ((année % 4 = 0) ET !(année % 100 = 0) OU (année % 400 = 0)) alors
     bissextile ← 0
   sinon
     bissextile ← 1
+  finsi
+
+  si (année = 0) alors
+    écrire("Peu de gens le savent, mais l'année 0 n'existe pas dans le calendrier chrétien.")
+  finsi
 fintantque
 
 /*saisie du mois avec test*/
