@@ -1,28 +1,169 @@
 programme lendemain
 déclarations
-  variables jour, mois, année en entiers
+  variables jour, hier, mois, mois_hier court, année, année_hier en entiers
+  variable mois_nom en chaîne de caractères
+  variables bissextile en booléen
 début
 
-/*initialisation des variables avec une valeur qui leur permette de rentrer dans les boucles de test*/
-
+/*
+  Initialisation des variables avec une valeur qui leur permette de rentrer dans les boucles de test.
+  Comme nous avons réservé un entier, 100 n'est pas une valeur qui pren plus de place qu'une autre valeur tout aussi invalide.
+*/
 jour ← 100
 mois ← 100
 année ← 0
 
-tantque
-  écrire("Saisir le mois : ")
-fin
+/*saisie de l'année*/
+tantque (année = 0) faire
+  écrire("Saisir l'année : ")
+  lire(année)
+  si (année = 0) alors
+    écrire("Peu de gens le savent, mais l'année 0 n'existe pas selon le calendrier chrétien")
+  finsi
 
-tantque (jour > 31) faire
-  écrire("Saisir le jour : ")
-  lire(jour)
-  si (jour > 31) alors
-    écrire("Connard.")
+/*
+  test pour savoir si l'année est bissextile et affecter la valeur booléenne 'bissextile'.
+  vrai = 0
+  faux = 1
+*/
+  si (((année % 4 = 0) ET !(année % 100 = 0) OU (année % 400 = 0))) alors
+    bissextile ← 0
+  sinon
+    bissextile ← 1
+fintantque
+
+/*saisie du mois avec test*/
+tantque (mois > 12) faire
+  écrire("Saisir le mois : ")
+  lire(mois)
+  si (mois > 12) alors
+    écrire("Non mais, UN MOIS! Il y en a combien?!?")
+  finsi
+
+/*
+  Test pour affecter la valeur court, qui nous indiquera si le mois est de 30 (court = 0) ou 31 jours (court = 1). Le troisième cas est le mois de Février.
+*/
+  si (mois = (1 OU 3 OU 5 OU 7 OU 8 OU 10 OU 12)) alors
+    court = 1
+  sinon
+    si (mois = (4 OU 6 OU 9 OU 11)) alors
+      court = 0
+    sinon
+      court = 2
+    finsi
   finsi
 fintantque
 
+/*
+'selonque' afin de pouvoir montrer ensuite le nom du mois. Mais comme cela ne nous sert que pour les mois court, autant ne traiter que ces cas et laisser le programme se poursuivre si ce n'est pas le cas.
+*/
+si (court = 0)
+  selonque mois alors
+    cas mois = 4  : mois_nom ← "Avril"     fincas
+    cas mois = 6  : mois_nom ← "Juin"      fincas
+    cas mois = 9  : mois_nom ← "Septembre" fincas
+    cas mois = 11 : mois_nom ← "Novembre"  fincas
+  finselonque
+finsi
+/*saisie du jour avec tests*/
+tantque (jour > 31) faire
+  écrire("Saisir le jour : ")
+  lire(jour)
+  si (jour > 28) alors
+    /*aucun mois n'a plus de 31 jours*/
+    si (jour > 31) alors
+      écrire("Oui, bien sûr, fais ton malin.")
+    finsi
+    si (mois = 2)
+      si ((jour = 29 ) ET (bissextile = 1)) alors
+        écrire("Cette année, " année " n'est pas bissextile : le 29 Février n'existe pas.")
+        tantque (jour > 28) faire
+          écrire("Saisir le jour : ")
+          lire("jour")
+          si (jour > 28) alors
+            écrire("Tu n'as pas compris, toi?")
+          finsi
+        fintantque
+      finsi
+    finsi
+  /*certains mois n'ont que 30 jours*/
+    si (jour > 30) alors
+      si (court = 0) alors
+        écrire("Attention, tu as choisi ", mois_nom " qui n'a que 30 jours.")
+        tantque (jour > 30) faire
+          écrire("Saisir le jour : ")
+          lire(jour)
+          si (jour > 30) alors
+            écrire("Mais tu le fais exprès!")
+          finsi
+        fintantque
+      finsi
+    finsi
+  finsi
+fintantque
 
-Agenda
+/*
+Quoiqu'il en soit, on change de jour. Pour garder trace de l'évolution, on stocke la valeur dans la variable 'hier'.
+*/
+hier ← jour
 
-une année
-12 mois
+/*
+On va peut-être ne pas changer de mois ni d'année, mais d'affecter en tout cas les variables nous permet de les afficher à la fin de manière plus simple. Plus, comme on les a déclarées (et c'était nécessaire), en les utilisant nous n'augmentons pas les ressources nécessaires à l'exécution du programme.
+*/
+mois_hier ← mois
+année_hier ← année
+
+/*calcul du jour suivant*/
+selonque (court) alors
+
+/*cas des mois de 31 jours*/
+  cas court = 1 : faire
+
+  /* si c'est le 31, le lendemain on change de mois*/
+    si (jour = 31) alors
+      jour ← 1
+      mois ← mois++
+
+    /*si c'est le 31 et que le moi est Décembre*/
+        si (mois = 12) alors
+          mois ← 1
+          année ← année++
+        finsi
+
+    /*si ce n'est pas le 31, on augmente simplement*/
+    sinon
+      jour ← jour++
+    finsi
+  fincas
+
+/*Cas des mois de 30 jours (pas de changement d'année car Décembre en a 31)*/
+  cas court = 0 : faire
+
+    /*si c'est le 30...*/
+    si (jour=30) alors
+      jour ← 1
+      mois ← mois++
+    sinon
+      jour ← jour++
+    finsi
+  fincas
+
+/*Le cas qui reste est celui de 'court = 2', c'est-à-dire Février*/
+  cas par défaut:
+    si (jour < 28) alors
+      jour ← jour++
+    sinon
+      si (bissextile = 0) alors
+        si (jour = 28) alors
+          jour ← jour++
+        sinon
+          jour ← 1
+          mois ← mois++
+        finsi
+      finsi
+    finsi
+  fincas
+  finselonque
+
+  écrire("Le lendemain du ", jour "/", mois_hier "/", année_hier " est le ", jour "/", mois "/", année)
+fin
