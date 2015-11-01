@@ -105,6 +105,11 @@ tantque (jour > 31) faire
       finsi
     finsi
   finsi
+
+  /*Enfin, aucun mois n'a plus de 31 jours*/
+  si (jour > 31) alors
+    écrire("Oui, bien sûr, fais ton malin.")
+  finsi
 fintantque
 
 /*
