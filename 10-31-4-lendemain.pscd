@@ -132,12 +132,14 @@ selonque (court) alors
   /* si c'est le 31, le lendemain on change de mois*/
     si (jour = 31) alors
       jour ← 1
-      mois ← mois++
 
-    /*si c'est le 31 et que le moi est Décembre*/
+    /*si c'est le 31 et que le moi est Décembre, on change d'année*/
         si (mois = 12) alors
           mois ← 1
           année ← année++
+    /*si ce n'est pas Décembre, on change juste de mois*/
+        sinon
+          mois ← mois++
         finsi
 
     /*si ce n'est pas le 31, on augmente simplement*/
