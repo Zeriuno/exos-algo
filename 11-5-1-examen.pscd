@@ -1,0 +1,87 @@
+Examen
+
+1. Exercice 1
+
+programme inversement
+déclarations
+  constante MOTS_MAX = 100
+  variable fic en fichier
+  variable dico en tableau[MOTS_MAX] de chaînes de caractères
+  variable cpt, mots_num en entiers
+  variable mot en chaîne de caractères
+début
+  pour cpt variant de 1 à MOTS_MAX par pas de 1 faire
+    dico[cpt] ← NULL
+  finpour
+  cpt ← 1
+  fic ← ouvrir("DICO1.TXT", "lecture", "texte")
+  tantque(!findefichier) faire
+    lire(fic, mot)
+    dico[cpt] ← mot
+    cpt ← cpt++
+  fintantque
+  fermer(fic)
+  mots_num ← cpt - 1
+  fic ← ouvrir("DICO2.TXT", "écriture", "texte")
+  pour cpt variant de mots_num à 1 par pas de -1 faire
+    écrire(fic, dico[cpt])
+  finpour
+  fermer(fic)
+  écrire("Le fichier inversé DICO2.TXT est prêt.")
+fin
+
+2. Exercice 2
+
+programe cherche_encore
+déclarations
+  constante RÉELS_MAX = 1000
+  variable fic en fichier
+  variable nombre_lu, nombre_fichier_lu en chaîne de caractères
+  variable nombre, nombre_fichier en réels
+  variable calc_tab en tableau[RÉELS_MAX] de réels
+  variable trouvé en booléen
+début
+  écrire("Jouons! Saisis un nombre réel positif : ")
+  lire(nombre_lu)
+  nombre ← est_numerique(nombre_lu)
+
+  si(nombre_lu <= 0) alors
+    écrire(nombre_lu " n'est pas un nombre réel positif pauv'naze !")
+  sinon
+    fic ← ouvrir("CALC.txt", lecture)
+    trouvé ← 0
+    tantque((!findefichier) ou (trouvé = 0)) faire
+      lire(fic, nombre_fichier_lu)
+      nombre_fichier ← est_numerique(nombre_fichier_lu)
+      si (nombre_fichier = nombre) alors
+        trouvé = 1
+      finsi
+    fintantque
+    fermer(fic)
+    si (trouvé = 1) alors
+      écrire(nombre " est présent dans le fichier BINGO !")
+    sinon
+      écrire(nombre " n'est pas présent dans le fichier LOOSER !")
+  finsi
+fin
+
+
+3. Exercice 3
+
+programme structuration
+déclarations
+  constante MAX_BD = 500
+  constante MAX_SCENARISTES = 5
+  constante MAX_DESSINATEURS = 3
+  type bd en enregistrement
+    titre en chaîne de caractères
+    scénaristes en tableau[MAX_SCENARISTES] de chaînes de caractères
+    dessinateurs en tableau[MAX_DESSINATEURS] de chaînes de caractères
+    éditeur en chaîne de caractères
+    collection en chaîne de caractères
+    date en entiers /*elle sera saisie au format AAAAMMJJ et parsée de conséquence*/
+    prix en réels
+  variable collection_bd en tableau[MAX_BD] de bd
+début
+  [non requis par l'exercice]
+fin
