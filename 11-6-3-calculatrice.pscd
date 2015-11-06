@@ -1,0 +1,95 @@
+/*
+Exercice 9.1
+Fait en collaboration avec Mengwei Yang, auteur de la fonction addition et de la procédure multiplication, tous droits réservés
+*/
+
+fonction addition(par1, par2)
+déclarations
+  paramètre par1, par2 en entiers
+  variable res en entier
+début
+  res ← par + par2
+  retourner(res)
+fin
+
+fonction soustraction(par1, par2)
+déclarations
+  paramètres par1, par2 en entiers
+  variable résultat en entier
+début
+    résultat ← par1 - par2
+    retourner(résultat)
+fin
+
+procédure multiplication(par1, par2, par3)
+déclaration
+  paramètres par1, par2, par3 en entiers
+  variables cpt, res en entiers
+début
+  pour cpt variant de par2 à par3 par pas de 1 faire
+    res ← par1 * cpt
+    écrire(par1 "*", cpt "=", res)
+fin
+
+procédure division(par1, par2, par3)
+déclarations
+  paramètres par1, par2, par3 en entiers
+  variables cpt, résultat en entiers
+début
+  pour cpt variant de par2 à par3 par pas de 1 faire
+    si (cpt = 0) alors
+      écrire("L'opération est impossible")
+    sinon
+      résultat ← par1 / cpt
+      écrire(par1 " / ", cpt " = ", résulat)
+    finsi
+  finpour
+fin
+
+programme calculatrice
+déclarations
+  variables nombre, A, B, C en entiers
+  variable opératio_c en chaîne de caractères
+début
+  écrire("Saisir le nombre dont vous voulez voir les tables :")
+  lire(nombre)
+  écrire("Saisir la limite inférieure des table : ")
+  lire(A)
+  écrire("Saisir la limite supérieure des table : ")
+  lire(B)
+  écrire(Choisir l'opération : )
+  lire(opération_c)
+  si (A < B) faire
+    C ← A
+    A ← B
+    B ← C
+  finsi
+  selonque (opération_c) alors
+    cas "addition" :
+    cas "+" :
+      pour cpt variant de A à B par pas de 1 faire
+        résultat ← addition(nombre, cpt)
+        écrire(nombre "+", cpt "=", résultat)
+      finpour
+    fincas
+    cas "soustraction" :
+    cas "-" :
+      pour cpt variant de A à B par pas de 1 faire
+        résultat ← soustraction(nombre, cpt)
+        écrire(nombre "-", cpt "=", résultat)
+      finpour
+      fincas
+    cas"multiplication":
+    cas "x" :
+    cas "*" :
+    cas "×" :
+      multiplication(nombre, A, B)
+      fincas
+    cas "division" :
+    cas "/":
+      division(nombre, A, B)
+      fincas
+    cas par défaut:
+      écrire("Je n'ai pas compris. Les opérations sont 'addition', 'soustraction', 'multiplication' ou 'division'.")
+  finselonque
+fin
