@@ -1,0 +1,30 @@
+/* Exercice de cours corrigé par M. Jacquenod */
+
+fonction strictement_majeur(param1, param2)
+déclarations
+  paramètres param1, param2 en réels
+  variable majeur en booléen
+début
+  majeur ← 0  /*0 = faux*/
+  si (param1 > param2) alors
+    majeur ← 1  /*Ou bien on n'utilise pas de variable, on met retourner 0, et 'sinon retourner 1', utilisant ainsi moins de mémoire*/
+  retourner majeur
+  finsi
+fin
+
+programme cf_numéros
+déclarations
+  variables n1, n2 en réels
+début
+  écrire(Saisir un nombre :)
+  lire(n1)
+  écrire(Saisir le nombre de comparaison :)
+  lire(n2)
+  si (strictement_majeur(n1, n2))
+    écrire(n1 " est plus grand que ", n2)
+  sinonsi (!strictement_majeur(param2, param1))
+    écrire(n1 " est plus petit que ", n2)
+  sinon
+    écrire(n1 " et ", n2 " sont égaux")
+  finsi
+fin
