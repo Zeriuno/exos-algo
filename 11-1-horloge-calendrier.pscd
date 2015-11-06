@@ -38,7 +38,7 @@ début
           selonque court alors
 
           /*1er cas: Février*/
-            cas court = -1 :
+            cas -1 :
               si (jours > 28 ) alors
                 si (bissextile = 1) alors  /*'bissextile = 1' est le cas 'faux'*/
                   jours ← 1
@@ -53,7 +53,7 @@ début
             fincas
 
           /*2e cas: mois de 30 jours*/
-            cas court = 0 :
+            cas 0 :
               si (jours = 31) alors
                 jours ← 1
                 mois ← mois++
@@ -61,7 +61,7 @@ début
             fincas
 
           /*3e cas: mois de 31 jours*/
-            cas court = 1 :
+            cas 1 :
               si (jours = 32) alors
                 jours ← 1
                 si (mois = 12) alors
