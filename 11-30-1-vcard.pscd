@@ -1,0 +1,46 @@
+/*
+  Algorithme pour la création d'une vcard de manière interactive et qui s'adapte aux besoins de l'utilisateur.
+*/
+
+programme vcard
+déclarations
+  constante MAX_TEL = 4
+  variables prénom, nom, en chaînes de caractères
+  variables choix_vcard, choix en entiers
+  variable téléphone en tableau [MAX_TEL] d'entiers
+début
+
+/* Initialisation du/des tableaux à rajouter ici */
+
+
+  écrire("1 - Saisir le nom")
+  écrire("2 - Saisir le numéro de téléphone")
+  écrire("3 - Saisir l'adresse mél")
+  écrire("4 - Saisir l'adresse")
+  lire(choix_vcard)
+
+  selonque choix_vcard
+    cas 1
+      écrire("Saisir le prénom du contact : ")
+      lire(prénom)
+      écrire("Saisir le nom du contact : ")
+      lire(nom)
+      fincas
+    cas 2
+      i ← 1
+      choix ← O
+      tantque((i < (MAX_TEL + 1)) ET choix != N)
+      /* afin d'inclure dans la boucle les valeurs ni O ni N saisies, je paramètre par rapport à N (seule valeur avec laquelle on préfère tout simplement passer à l'étape suivante.)*/
+
+        si (choix = O)
+      /* On est en train de faire passer des valeurs qui ne sont pas O, et ce juste afin de les 
+          écrire("Saisir le numéro de téléphone : ")
+          lire(téléphone[i])
+        finsi
+          écrire("Voulez-vous saisir un autre numéro ? (O/N)")
+          lire(choix)
+        si
+        finsi
+      fintantque
+  finselonque
+fin
