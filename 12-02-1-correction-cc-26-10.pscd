@@ -1,0 +1,20 @@
+programme multiplication_par_additions
+déclarations
+  variables mult1, mult2, échange, produit, cpt en entiers
+début
+  écrire("Saisir un chiffre : ")
+  lire(mult1)
+  écrire("Saisir un autre chiffre : ")
+  lire(mult2)
+
+  si (mult1 > mult2)
+    échange ← mult2
+    mult2 ← mult1
+    mult1 ← échange
+  finsi
+
+  produit ← 0
+  pour ctp variant de 1 à mult1 par pas de 1 faire
+    produit ← produit + mult2
+  finpour
+fin
