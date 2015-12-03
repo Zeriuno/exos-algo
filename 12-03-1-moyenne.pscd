@@ -1,0 +1,35 @@
+programme moyenne
+déclarations
+  constante MAX_NOTES = 50
+  variables nom_fichier en chaîne de caractères
+  variable fic en fichier
+  variables moyenne, somme en réels
+  variable notes en tableau [MAX_NOTES] de réels
+début
+  /* initialiser le tableau */
+  pour cpt variant de 1 à 50 par pas de 1 faire
+    notes[cpt] ← -1
+  finpour
+  écrire("Saisir le nom du fichier : ")
+  lire(nom_fichier)
+  somme ← 0
+  cpt ← 0
+  note ← 1
+  fic ← ouvrir(nom_fichier, "lecture", "texte")
+  tantque ((cpt < 51) ET (note != -1)) faire
+    cpt ← cpt++
+    lire(fic, notes[cpt])
+  fintantque
+  fermer(fic)
+  cpt ← 0
+  tantque ((cpt <= 50) ET (note != -1)) faire
+    cpt ← cpt++
+    somme ← somme + notes[cpt]
+  fintantque
+  si (notes[cpt] = -1) alors
+    cpt ← cpt - 1
+    somme ← somme + 1
+  finsi
+  moyenne ← somme / cpt
+  écrire("La moyenne de ces ", cpt " notes est ", moyenne)
+fin
