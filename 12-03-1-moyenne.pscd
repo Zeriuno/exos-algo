@@ -6,7 +6,6 @@ déclarations
   variables moyenne, somme en réels
   variable notes en tableau [MAX_NOTES] de réels
 début
-  /* initialiser le tableau */
   pour cpt variant de 1 à 50 par pas de 1 faire
     notes[cpt] ← -1
   finpour
