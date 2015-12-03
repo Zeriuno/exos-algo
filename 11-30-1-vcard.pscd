@@ -5,18 +5,35 @@
 programme vcard
 déclarations
   constante MAX_TEL = 4
+  constante MAX_MEL = 4
+  constante MAX_ADR = 2
   variables prénom, nom, en chaînes de caractères
   variables choix_vcard, choix en entiers
-  variable téléphone en tableau [MAX_TEL] d'entiers
+  variable téléphone en tableau [MAX_TEL], mel en tableau [MAX_MEL], adresse en tableau [MAX_ADR] de chaînes
 début
 
-/* Initialisation du/des tableaux à rajouter ici */
+/* Initialisation du/des tableaux*/
+  pour i variant de 1 à MAX_TEL par pas de 1 faire
+    téléphone[i] ← NULL
+  finpour
+
+  pour i variant de 1 à MAX_MEL par pas de 1 faire
+    mel[i] ← NULL
+  finpour
+
+  pour i variant de 1 à MAX_ADR par pas de 1 faire
+    adresse[i] ← NULL
+  finpour
 
 
+  choix_vcard ← 1
+
+tantque (choix_vcard != 0) faire
   écrire("1 - Saisir le nom")
   écrire("2 - Saisir le numéro de téléphone")
   écrire("3 - Saisir l'adresse mél")
   écrire("4 - Saisir l'adresse")
+  écrire("0 - Quitter")
   lire(choix_vcard)
 
   selonque choix_vcard
@@ -27,20 +44,85 @@ début
       lire(nom)
       fincas
     cas 2
-      i ← 1
-      choix ← O
-      tantque((i < (MAX_TEL + 1)) ET choix != N)
-      /* afin d'inclure dans la boucle les valeurs ni O ni N saisies, je paramètre par rapport à N (seule valeur avec laquelle on préfère tout simplement passer à l'étape suivante.)*/
+      i ← 0
+      choix ← 'O'
+      /* On initialise la valeur à 'O', afin de rentrer directement dans la saisie.
+      Autrement on pourrait
+      choix ← 'A' valeur neutre
+      {saisie...}
+      écrire("Voulez-vous saisir un autre valeur? (O/N)")
+      lire(choix)
+      tantque ((choix != O) OU (choix != N))
+        {poser la question}
+      fintantque */
 
-        si (choix = O)
-      /* On est en train de faire passer des valeurs qui ne sont pas O, et ce juste afin de les 
+      tantque (choix != N) faire
+
+      /* Afin d'inclure dans la boucle les valeurs ni O ni N saisies, je paramètre par rapport à N (seule valeur avec laquelle on n'agit pas, car on sort du cas et passe à l'étape suivante.)*/
+
+
+        si (choix = O) alors
+        /* On n'enregistre les informations qu'en cas de réponse positive (par défaut au début)*/
+          i ← i++
+
+          /* i part de zéro pour ne pas être en avance ensuite sur le nombre de valeurs renseignées lors des itérations de la boucle */
+
           écrire("Saisir le numéro de téléphone : ")
           lire(téléphone[i])
+        sinon
+          écrire("Réponse fausse. Les réponses acceptées sont 'O' et 'N'.")
         finsi
+        si (i < MAX_TEL) alors
+        /* i est la discriminante qui nous permet de continuer à saisir des numéros de téléphone. Autant donc s'en servir ici, où on voit si l'on offre le choix de continuer, justement.
+        i doit être inférieur à MAX_TEL car la valeur de i indique un nombre de variables déjà saisies.*/
           écrire("Voulez-vous saisir un autre numéro ? (O/N)")
           lire(choix)
-        si
+        sinon
+          écrire("Vous avez atteint la limite des valeurs prévues pour ce champ.")
+          choix ← 'N'
         finsi
       fintantque
+      fincas
+    cas 3:
+      i ← 0
+      choix ← 'O'
+
+      tantque (choix != 'N') faire
+        si (choix = 'O') alors
+          i ← i++
+          écrire("Saisir l'adresse mél : ")
+          lire(mel[i])
+        sinon
+          écrire("Réponse fausse. Les réponses acceptées sont 'O' et 'N'.")
+        finsi
+        si (i < MAX_MEL) alors
+          écrire("Voulez-vous saisir une autre adresse mél? (O/N)")
+          lire(choix)
+        sinon
+          écrire("Vous avez atteint la limite des valeurs prévues pour ce champ.")
+          choix ← 'N'
+        finsi
+      fintantque
+      fincas
+
+    cas 4:
+      i ← 0
+      choix ← 'O'
+      tantque (choix != 'N') faire
+        si (choix = 'O') alors
+          i ← i++
+          écrire("Saisir l'adresse : ")
+          lire(adresse[i])
+        sinon
+          écrire("Réponse fausse. Les réponses acceptées sont 'O' et 'N'.")
+        finsi
+        si (i < MAX_ADR) alors
+          écrire("Voulez-vous saisir une autre adresse? (O/N)")
+        sinon
+          écrire("La limite des valeurs prévues pour ce champ a été atteinte.")
+        finsi
+      fintantque
+      fincas
   finselonque
+fintantque
 fin
