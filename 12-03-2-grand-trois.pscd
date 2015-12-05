@@ -1,0 +1,31 @@
+/* comment savoir quel est le plus grand de trois nombres? */
+
+programme majeur_trois
+déclarations
+  variables a, b, c, grand en réels
+  variables ab, ac, bc en booléens
+début
+  ab ← FAUX
+  ac ← FAUX
+  bc ← FAUX
+
+  écrire("Saisir trois chiffres : ")
+  lire(a, b, c)
+
+  si(a > b) alors
+    si(a > c) alors
+      grand ← a
+    sinon
+      grand ← c
+    finsi
+  sinon
+    si(b > c) alors
+      grand ← b
+    sinon
+      grand ← c
+      si ((c - b) = 0) alors
+      bc = VRAI
+    finsi
+  finsi
+  écrire("Le plus grand des trois chiffres est ", grand)
+fin
