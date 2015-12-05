@@ -12,20 +12,23 @@ début
   écrire("Saisir trois chiffres : ")
   lire(a, b, c)
 
-  si(a > b) alors
-    si(a > c) alors
-      grand ← a
+  si((a - b - c) = -a) alors
+    écrire("Petit malin, ils sont tous égaux!")
     sinon
-      grand ← c
-    finsi
-  sinon
-    si(b > c) alors
-      grand ← b
+      si(a > b) alors
+      si(a > c) alors
+        grand ← a
+      sinon
+        grand ← c
+      finsi
     sinon
-      grand ← c
-      si ((c - b) = 0) alors
-      bc = VRAI
+      si(b > c) alors
+        grand ← b
+      sinon
+        grand ← c
+        si ((c - b) = 0) alors
+        bc = VRAI
+      finsi
     finsi
   finsi
-  écrire("Le plus grand des trois chiffres est ", grand)
 fin
