@@ -1,0 +1,36 @@
+/*
+  Corrigé de M. Jacquenod
+*/
+
+programme lancer
+déclarations
+  variable tab_lancer en tableau [6] en entiers
+  variables cpt, chiffre, nb_jet en entiers
+  variable stat en réel
+début
+
+/* Initialisation */
+
+  pour cpt variant de 1 à 6 par pas de 1 faire
+    tab_lancer[cpt] ← 0
+  finpour
+  écrire("Choisir combien de fois lancer le dé : ")
+  lire(nb_jet)
+  tantque (cpt < nb_jet) faire
+    chiffre ← aléatoire(1,6)
+    tab_lancer[chiffre] ← tab_lancer[chiffre] + 1
+
+    /*
+    pourquoi? pourquoi pas plutôt
+
+    tab_lancer[cpt] ← chiffre
+    cpt ← cpt + 1
+    */
+    
+  fintantque
+  pour cpt variant de 1 à 6 par pas de 1 faire
+    stat ← arrondi(tab_lancer[cpt] * 100 / nb_jet, 2)
+    écrire("Le chiffre ", cpt, " est sorti ", tab_lancer[cpt], " sur ", nb_jet, " lancers.")
+    écrire("soit ", stat, "%")
+  finpour
+fin
