@@ -16,17 +16,13 @@ début
   finpour
   écrire("Choisir combien de fois lancer le dé : ")
   lire(nb_jet)
-  tantque (cpt < nb_jet) faire
+  /*
+  ré-initialiser le compteur
+  cpt ← 0
+  */
+  tantque (cpt < nb_jet) faire /*ou plutôt <= si tu ne mets pas le compteur à 0*/
     chiffre ← aléatoire(1,6)
-    tab_lancer[chiffre] ← tab_lancer[chiffre] + 1
-
-    /*
-    pourquoi? pourquoi pas plutôt
-
-    tab_lancer[cpt] ← chiffre
-    cpt ← cpt + 1
-    */
-    
+    tab_lancer[chiffre] ← tab_lancer[chiffre] + 1      /* afin de mettre dans chaque case une valeur qui indique combien de fois on a eu ce résultat */
   fintantque
   pour cpt variant de 1 à 6 par pas de 1 faire
     stat ← arrondi(tab_lancer[cpt] * 100 / nb_jet, 2)
