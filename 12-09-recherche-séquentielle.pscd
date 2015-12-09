@@ -11,25 +11,25 @@ début
     p[i] ← -1
   finpour
 fin
-procédure remplir_tab(ref p)
+procédure remplir_tab(ref p, ref q)
 déclarations
   [...]
 fin
 programme recherche_seq
 déclarations
   variable tab en tableau [MAX_TAB] en entiers
-  variable i, recherché, trouvé en entiers
+  variable i, i_rempli, recherché, trouvé en entiers
 début
   /*initialisation du tableau*/
   initialisation(tab)
   /*saisie*/
-  remplir_tab(tab)
+  remplir_tab(tab, i_rempli)
   /*recherche*/
   écrire("Que voulez-vous rechercher : ")
   lire(recherché)
   trouvé ← 0
   i ← 0
-  tantque((trouvé = 0) ET ((i < MAX_TAB) OU (tab[i] != -1))) faire
+  tantque((trouvé = 0) ET ((i < i_rempli)) faire
     i ← i++
     si(recherché = tab[i]) alors
       trouvé ← 1
