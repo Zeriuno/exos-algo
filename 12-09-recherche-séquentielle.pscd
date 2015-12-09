@@ -30,24 +30,18 @@ début
   petit_dernier ← -1
   trouvé ← 0
   i ← 0
-  si(i_rempli < MAX_TAB) alors
-    tab[i_rempli + 1] ← recherché
-  sinon
-    petit_dernier ← tab[i_rempli]
-    tab[i_rempli] ← recherché
-  finsi
+  petit_dernier ← tab[i_rempli]
+  tab[i_rempli] ← recherché
   tantque(trouvé = 0) faire
     i ← i++
     si(recherché = tab[i]) alors
       trouvé ← 1
     finsi
   fintantque
-  si((recherché != petit_dernier) OU (i > i_rempli)) alors
+  si((i = i_rempli) ET (recherché != petit_dernier)) alors
     trouvé = 0
   finsi
-  si(i > i_rempli) alors
-    tab[i] ← -1
-  finsi
+  tab[i_rempli] ← petit_dernier
   si(petit_dernier != -1) alors
     tab[MAX_TAB] ← petit_dernier
   finsi
