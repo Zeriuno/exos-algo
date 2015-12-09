@@ -1,0 +1,47 @@
+/*Exercice avec corrections de M. Jacquenod, tous droits réservés*/
+
+variable globale MAX_TAB ← 100
+
+procédure initialisation(ref p)
+déclarations
+  paramètre p en tableau de [MAX_TAB] d'entiers
+  variable i en entier
+début
+  pour i variant de 1 à MAX_TAB par pas de 1 faire
+    p[i] ← -1
+  finpour
+fin
+procédure remplir_tab(ref p)
+déclarations
+  [...]
+fin
+programme recherche_seq
+déclarations
+  variable tab en tableau [MAX_TAB] en entiers
+  variable i, recherché, trouvé en entiers
+début
+  /*initialisation du tableau*/
+  initialisation(tab)
+  /*saisie*/
+  remplir_tab(tab)
+  /*recherche*/
+  écrire("Que voulez-vous rechercher : ")
+  lire(recherché)
+  trouvé ← 0
+  i ← 0
+  tantque((trouvé = 0) ET ((i < MAX_TAB) OU (tab[i] != -1))) faire
+    i ← i++
+    si(recherché = tab[i]) alors
+      trouvé ← 1
+    finsi
+  fintantque
+  /*affichage*/
+  selonque(trouvé) faire
+    cas 1 :
+      écrire("La valeur recherchée ", recherché, " se trouve dans la case ", i)
+      fincas
+    cas par défaut :
+      écrire("La valeur recherchée ", recherché, " n'est pas présente dans le tableau")
+      fincas
+  finselonque
+fin
