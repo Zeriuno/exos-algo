@@ -69,8 +69,8 @@ début
 /* Initialisation des variables */
   init_tab(tab1)
   init_tab(tab2)
-  combien <- 0  
-  
+  combien <- 0
+
 
   saisie_tab(tab1, combien)
 fin
