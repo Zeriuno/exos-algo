@@ -51,11 +51,18 @@ début
   fintantque
 fin de procédure
 
-procédure saisie_tab2 (par1[x], par2)
+procédure saisie_tab2 (ref par1[x], par2) /* Dans ce cas il n'est pas nécessaire de passer le paramètre par2 en référence, car sa valeur n'est pas modifiée dans la procédure. Ne pas le passer en référence permettrait des changements accidentels, mais fait occuper une case mémoire en plus */
 déclarations
   paramètre par1 en tableau[x] de réels
-  paramètre par2 en entier
+  paramètre par2 en entiers
+  variable i en entiers
+  variable saisie en réels
 début
+  écrire("Saisie pour le deuxième Tableau de ", par2 " valeurs : ")
+  pour i variant de 1 à par2 faire
+    lire(saisie)
+    par1[i] <- saisie
+  finpour
 fin de procédure
 
 programme tableaux
@@ -71,7 +78,7 @@ début
   init_tab(tab2)
   combien <- 0
 
-
-  saisie_tab(tab1, combien)
+  saisie_tab1(tab1, combien)
+  saisie_tab2(tab2, combien)
 fin
 ```
