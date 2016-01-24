@@ -36,8 +36,8 @@ fin de procédure
 procédure saisie_tab1 (ref par1[x], ref par2)
 déclarations
   paramètre par1 en tableau[x] de réels
-  paramètre par2 en entier
-  variable saisie en réel
+  paramètre par2 en entiers
+  variable saisie en réels
 début
   saisie <- 9999
   par2 <- 0
