@@ -33,12 +33,22 @@ début
   fintantque
 fin de procédure
 
-procédure saisie_tab1 (par1[x], par2)
+procédure saisie_tab1 (ref par1[x], ref par2)
 déclarations
   paramètre par1 en tableau[x] de réels
+  paramètre par2 en entier
+  variable saisie en réel
 début
+  saisie <- 9999
+  par2 <- 0
   écrire("Saisie pour le premier tableau")
   écrire("Donnez une série de nombres (nombre négatif pour arrêter) : ")
+  lire(saisie)
+  tantque (saisie >= 0)
+    par2++
+    par1[compteur] <- saisie
+    lire(saisie)
+  fintantque
 fin de procédure
 
 procédure saisie_tab2 (par1[x], par2)
