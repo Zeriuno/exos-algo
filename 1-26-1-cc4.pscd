@@ -1,0 +1,111 @@
+Algorithmique
+CC4
+
+Daniele Pitrolo
+26-01-2016
+
+programme cc4
+déclarations
+  variable tab en tableau [100] d'entiers
+  variables cpt, indice, cible, case1, case2 en entiers
+  /*variable trouve en booléen  On peut se passer de cette variable par le biais
+   du test sur case2. Ou bien on pourrait utiliser trouve et se passer de case2
+   en utilisant cpt*/
+début
+  Initialisation(tab)
+  Insertion_data_tab(tab, indice)
+  cible <- -1
+
+  tantque(cible < 0) faire
+    écrire("Saisir la valeur à rechercher : ")
+    lire(cible)
+    si(cible < 0)
+      écrire("Erreur: la valeur recherchée doit être positive.")
+    finsi
+  fintantque
+
+  /*trouve <- FAUX*/
+  cpt <- 0
+  case1 <- 0
+  case2 <- 0
+
+  /*tantque((trouve = FAUX) ET (cpt < indice)) faire*/
+  tantque((case2 = 0) ET (cpt < indice)) faire
+    cpt++
+    si(tab[cpt] = cible) alors
+      si(case1 = 0) alors
+        case1 <- cpt
+      finsi
+      sinon
+        case2 <- cpt
+        /*trouve <- VRAI*/
+    finsi
+  fintantque
+
+
+  /*si(trouve = FAUX)*/
+  si(case2 =0)
+    écrire("Il n'y a pas deux occurrences du nombre ", cible "dans le tableau.")
+    sinon
+    écrire("Deux occurrences du nombre " cible " ont été trouvées aux indices ", case1 " et ", case2)
+  finsi
+
+fin
+
+
+programme cc4_mieux
+déclarations
+  variable tab en tableau [100] d'entiers
+  variables cpt, indice, cible, case1, case2, temp1, temp2 en entiers
+
+début
+  Initialisation(tab)
+  Insertion_data_tab(tab, indice)
+  cible <- -1
+
+  tantque(cible < 0) faire
+    écrire("Saisir la valeur à rechercher : ")
+    lire(cible)
+    si(cible < 0)
+      écrire("Erreur: la valeur recherchée doit être positive.")
+    finsi
+  fintantque
+
+  cpt <- 0
+  case1 <- 0
+  case2 <- 0
+
+  temp1 <- tab[(indice-1)]
+  temp2 <- tab[(indice)]
+
+  tab[(indice-1)] <- cible
+  tab[(indice)] <- cible
+
+  tantque(case2 = 0) faire
+    cpt++
+    si(tab[cpt] = cible) alors
+      si(case1 = 0) alors
+        case1 <- cpt
+      finsi
+      sinon
+        case2 <- cpt
+    finsi
+  fintantque
+
+
+  si(cpt = indice)
+    si(temp1 <> cible)
+      case1 <- 0
+
+      /*FIN DU TEMPS ICI*/
+    finsi
+  finsi
+
+
+  si(case2 =0)
+    écrire("Il n'y a pas deux occurrences du nombre ", cible "dans le tableau.")
+    sinon
+    écrire("Deux occurrences du nombre " cible " ont été trouvées aux indices ", case1 " et ", case2)
+  finsi
+
+fin
