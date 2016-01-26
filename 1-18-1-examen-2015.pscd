@@ -1,1 +1,84 @@
-#Examen 2	Algorithmique	2014-­‐2015	MIMO##Exercice 1: À sommer###Exemple:Saisie pour	le premier TableauDonnez une série de nombres (nombre	négatif pour arrêter) :	12	3	45 3 9 21 ­‐1Saisie pour le deuxième Tableau de 6 valeurs :  6 1	3	12 23 7La fusion des valeurs des indices opposés des 2 tableaux est :12 +  7 = 19 3 + 23 = 2645 + 12 = 57 3 +  3 =  6 9 +  1	=	1021 +	6	=	27procédure init_tab(ref par1[x])déclarations  paramètre par1 en tableau[x] de réels  variable i en entierdébut  i = 0  tantque i < x faire    i++    par1[i] ← -9999  fintantquefin de procédureprocédure saisie_tab1 (par1[x], par2)déclarations  paramètre par1 en tableau[x] de réelsdébut  écrire("Saisie pour le premier tableau")  écrire("Donnez une série de nombres (nombre	négatif pour arrêter) :	")fin de procédureprocédure saisie_tab2 (par1[x], par2)déclarations  paramètre par1 en tableau[x] de réels  paramètre par2 en entierdébutfin de procédureprogramme tableauxdéclarations  constante MAX_NOMBRES = 100  variable tab1 en tableau[MAX_NOMBRES] de réels  variable tab2 en tableau[MAX_NOMBRES] de réels  variable combien en entiersdébut/* Initialisation des variables */  init_tab(tab1)  init_tab(tab2)  combien <- 0  saisie_tab(tab1, combien)fin
+#Examen 2 Algorithmique	2014-2015 MIMO
+
+##Exercice 1: À sommer
+
+###Exemple:
+
+Saisie pour le premier Tableau
+
+Donnez une série de nombres (nombre négatif pour arrêter) : 12 3 45 3 9 21­ ‐1
+
+Saisie pour le deuxième Tableau de 6 valeurs : 6 1 3 12 23 7
+
+La fusion des valeurs des indices opposés des 2 tableaux est :
+
+12 +  7 = 19
+ 3 + 23 = 26
+45 + 12 = 57
+ 3 +  3 =  6
+ 9 +  1	= 10
+21 +  6	= 27
+
+```
+
+procédure init_tab(ref par1[x])
+déclarations
+  paramètre par1 en tableau[x] de réels
+  variable i en entier
+début
+  i = 0
+  tantque i < x faire /* Tableau qui commence à l'indice 1 et pas zéro */
+    i++
+    par1[i] ← -9999
+  fintantque
+fin de procédure
+
+procédure saisie_tab1 (ref par1[x], ref par2)
+déclarations
+  paramètre par1 en tableau[x] de réels
+  paramètre par2 en entiers
+  variable saisie en réels
+début
+  saisie <- 9999
+  par2 <- 0
+  écrire("Saisie pour le premier tableau")
+  écrire("Donnez une série de nombres (nombre négatif pour arrêter) : ")
+  lire(saisie)
+  tantque (saisie >= 0)
+    par2++
+    par1[compteur] <- saisie
+    lire(saisie)
+  fintantque
+fin de procédure
+
+procédure saisie_tab2 (ref par1[x], par2) /* Dans ce cas il n'est pas nécessaire de passer le paramètre par2 en référence, car sa valeur n'est pas modifiée dans la procédure. Ne pas le passer en référence permettrait des changements accidentels, mais fait occuper une case mémoire en plus */
+déclarations
+  paramètre par1 en tableau[x] de réels
+  paramètre par2 en entiers
+  variable i en entiers
+  variable saisie en réels
+début
+  écrire("Saisie pour le deuxième Tableau de ", par2 " valeurs : ")
+  pour i variant de 1 à par2 faire
+    lire(saisie)
+    par1[i] <- saisie
+  finpour
+fin de procédure
+
+programme tableaux
+déclarations
+  constante MAX_NOMBRES = 100
+  variable tab1 en tableau[MAX_NOMBRES] de réels
+  variable tab2 en tableau[MAX_NOMBRES] de réels
+  variable combien en entiers
+début
+
+/* Initialisation des variables */
+  init_tab(tab1)
+  init_tab(tab2)
+  combien <- 0
+
+  saisie_tab1(tab1, combien)
+  saisie_tab2(tab2, combien)
+fin
+```
