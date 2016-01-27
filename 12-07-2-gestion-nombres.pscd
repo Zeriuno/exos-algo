@@ -1,0 +1,125 @@
+/*
+
+Proposer un algorithme de gestion d'un tableau de 100 nombres positifs maximum.
+Il doit permettre de:
+  1. Charger la liste dans un tableau par saisie au clavier (-1 arrête)
+  2. Saisir un nombre positif à insérer dans ce tableau
+  3. Insérer le nombre dans le tableau en dernière position
+  4. Afficher un nombre à la position demandée
+
+Chaque étape est une procédure.
+Fonctionnement:
+
+1 puis
+2 ET 3
+OU 4
+
+*/
+
+déclarations
+  constante globale TAILLE_TABLEAU ← 100
+procédure saisie_tableau(ref par_saisie, ref cpt)
+déclarations
+  paramètre par_saisie en tableau [TAILLE_TABLEAU] de réels
+  paramètre cpt en entiers
+  variable nombre_sasie en réels
+  variable continuer_saisie en booléen
+début
+  continuer_saisie ← VRAI
+  cpt ← 0
+  tantque(continuer_saisie) faire
+    écrire("Saisir un nombre positif à insérer dans le tableau (-1 pour arrêter)")
+    lire(nombre_saisie)
+    si(nombre_saisie > 0) alors
+      cpt_saisie ← cpt_saisie++
+      par_saisie[cpt_saisie]
+    sinon
+      si(nombre_saisie = -1) alors
+        continuer_saisie ← FAUX
+      sinon
+        écrire("Attention, cela doit être un nombre positif, ou -1 pour arrêter")
+      finsi
+    finsi
+  fintantque
+fin
+
+
+fonction encore_saisie()
+déclarations
+  variable encore_saisie en réels
+début
+  encore_saisie ← -2
+  tantque(encore_saisie < 0) faire
+    écrire("Saisir le nombre à ajouter : ")
+    lire(saisie)
+    si(saisie >= 0)
+      retourner(sasie)
+    sinon
+      écrire("Le nombre saisi n'était pas positif")
+    finsi
+  fintantque
+fin
+
+
+procédure insertion(par1, ref par2, ref par3)
+  paramètre par1 en réel
+  paramètre par2 en tableau [TAILLE_TABLEAU] de réels
+  paramètre par3 en entier
+début
+  par2[par3] ← par1
+  par3 ← par3++
+fin
+
+
+procédure affiche
+déclarations
+  variable place en entier
+début
+  écrire("Saisir le nombre de la ligne du tableau dont on veut connaître la valeur : ")
+  lire(place)
+  écrire("Le numéro à la ligne ", place, " est ", tableau[place])
+fin
+
+
+programme tableau
+déclarations
+  variable tableau en tableau [TAILLE_TABLEAU] de réels
+  variables choix, cpt en entiers
+  variable ajout en réels
+  variable choix_petit en caractère
+début
+  pour cpt variant de 1 à 100 par pas de 1 faire
+    tableau[cpt] ← -1
+  finpour
+  cpt ← 0
+  saisie_tableau(tableau, cpt)
+  si cpt < 100 alors
+    tantque((choix != 1) ET (choix != 2)) faire
+      selonque
+        cas 1:
+          encore_saisie(ajout)
+          insertion(ajout, cpt)
+          finsi
+        cas 2:
+          affiche
+        fincas
+        cas par défaut:
+          écrire("Les choix possibles sont uniquement 1 et 2.")
+          fincas
+      finselonque
+    fintantque
+    sinon
+      choix_petit ← 'Z'
+      tantque((choix_petit != 'O') ET (choix_petit != 'N'))
+        écrire("Voulez-vous voir affichée la valeur d'une ligne ? (O/N) ")
+        lire(choix_petit)
+        si(choix_petit = 'O') alors
+          affiche
+        sinonsi(choix_petit = 'N')
+          écrire("Au revoir.")
+        sinon
+          écrire("Les réponses acceptées sont O ou N.")
+        finsi
+      fintantque
+  finsi
+fin
