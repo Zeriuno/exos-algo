@@ -1,0 +1,94 @@
+Exercice 3
+
+
+procédure init_phrase(ref phrase_num)
+déclarations
+  paramètre phrase_num en tableau[MAX] d'entiers
+début
+  pour i variant de 1 à MAX par pas de 1 faire
+    phrase_num[i] ← -1
+  finpour
+fin
+
+
+procédure lettres(ref phrase_num)
+déclarations
+  paramètre phrase_num en tableau[26] de caractères
+début
+  phrase_num[1] ← a
+  phrase_num[2] ← b
+  phrase_num[3] ← c
+  phrase_num[4] ← d
+  phrase_num[5] ← e
+  phrase_num[6] ← f
+  phrase_num[7] ← g
+  phrase_num[8] ← h
+  phrase_num[9] ← i
+  phrase_num[10] ← j
+  phrase_num[11] ← k
+  phrase_num[12] ← l
+  phrase_num[13] ← m
+  phrase_num[14] ← n
+  phrase_num[15] ← o
+  phrase_num[16] ← p
+  phrase_num[17] ← q
+  phrase_num[18] ← r
+  phrase_num[19] ← s
+  phrase_num[20] ← t
+  phrase_num[21] ← u
+  phrase_num[22] ← v
+  phrase_num[23] ← w
+  phrase_num[24] ← y
+  phrase_num[25] ← x
+  phrase_num[26] ← z
+fin
+
+fonction saisie(ref phrase_num)
+  paramètre phrase_num en tableau [MAX] d'entiers
+  variables choix, i en entiers
+début
+  choix ← -2
+  i ← 0
+  tantque(choix != -1) faire
+    écrire("Saisir un chiffre entre 0 et 26 (-1 pour arrêter)")
+    lire(choix)
+    si(choix > -1)
+      i++
+      phrase_num[i] ← choix
+    finsi
+  fintantque
+  retourner(i)
+fin
+
+
+procédure num_lettre(combien, ref phrase_num, ref alphabet)
+déclarations
+  paramètre combien en entiers
+  paramètre phrase_num en tableau[MAX] d'entiers
+  paramètre alphabet en tableau[26] de caractères
+  variables cpt, saisi en entiers
+début
+  cpt ← 0
+  écrire("La phrase est : ")
+  pour cpt variant de 1 à saisi par pas de 1 faire
+    saisi ← phrase_num[cpt]
+    si(saisi = 0)
+      écrire(" ")
+    sinon
+      écrire(alphabet[saisi])
+    finsi
+fin
+
+
+programme christopher
+déclarations
+  constante MAX = 100
+  variable phrase_num en tabeau[MAX] d'entiers
+  variable combien en entiers
+  variable alphabet en tableau[26] d'entiers
+début
+  init_phrase(phrase_num[MAX])
+  lettres(alphabet[26])
+  combien ← saisie(phrase_num[MAX])
+  num_lettre(combien, phrase_num, alphabet)
+fin
