@@ -1,0 +1,77 @@
+procédure initialisation(ref tab)
+déclarations
+  paramètre tab en tableau[MAX_TABLEAU] d'entiers
+  variable i en entiers
+début
+  pour i variant de 1 à MAX_TABLEAU par pas de 1 faire
+    tab[i] ← -1
+  finpour
+fin
+
+
+fonction saisie(ref tab)
+déclarations
+  paramètre tab en tableau[MAX_TABLEAU] d'entiers
+  variables chiffre, cpt en entiers
+début
+  cpt ← 0
+  tantque(chiffre != -1) faire
+    cpt++
+    écrire("Saisir un chiffre (-1 pour arrêter) : ")
+    lire(chiffre)
+    si(chiffre != -1) alors
+      tab[cpt] ← chiffre
+    finsi
+  fintantque
+  retourner(cpt)
+fin
+
+
+procédure saisie_contrainte(ref tab, i)
+déclarations
+  paramètre tab en tableau[MAX_TABLEAU] d'entiers
+  paramètre i en entiers
+  variable chiffre en en  tiers
+début
+  chiffre ← -1
+  pour cpt variant de 0 à i par pas de 1 faire
+    tantque(chiffre < 0) faire
+      écrire("Saisir un chiffre : ")
+      lire(chiffre)
+      si(chiffre < 0) alors
+        écrire("Le chiffre saisi doit être positif")
+      sinon
+        tab[cpt] ← chiffre
+      finsi
+    fintantque
+  finpour
+fin
+
+procédure Fusion_tab(ref t, ref b, cpt ref tabtout)
+  paramètre t en tableau[MAX_TABLEAU] d'entiers
+  paramètre b en tableau[MAX_TABLEAU] d'entiers
+  paramètre cpt en entiers
+  paramètre tabtout en tableau [MAX_TABLEAU] d'entiers
+début
+  écrire("Le tableau fusionné a ces valeurs (indice, valeur) : ")
+  pour i variant de 1 à cpt par pas de 1 faire
+    tabtout[i] ← t[i] + b[cpt - i + 1]
+    écrire(i ", " tabtout[i])
+  finpour
+fin
+
+programme examen2014
+déclarations
+  constante MAX_TABLEAU = 100
+  variable tab1 en tableau [MAX_TABLEAU] d'entiers
+  variable tab2 en tableau [MAX_TABLEAU] d'entiers
+  variable tabtout en tableau [MAX_TABLEAU] d'entiers
+  variable cpt en entiers
+début
+  initialisation(tab1)
+  initialisation(tab2)
+  initialisation(tabtout)
+  cpt ← saisie(tab1)
+  saisie_contrainte(tab2, cpt)
+  Fusion_tab(tab1, tab2, cpt, tabtout)
+fin
