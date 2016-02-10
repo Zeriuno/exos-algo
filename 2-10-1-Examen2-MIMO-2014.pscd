@@ -23,8 +23,11 @@ début
     cpt++
     écrire("Saisir un chiffre (-1 pour arrêter) : ")
     lire(chiffre)
-    si(chiffre != -1) alors
-      tab[cpt] ← chiffre
+    si(chiffre < -1)
+      écrire("Le chiffres saisis doivent être positifs")
+    sinon
+      si(chiffre != -1) alors
+        tab[cpt] ← chiffre
     finsi
   fintantque
   retourner(cpt)
