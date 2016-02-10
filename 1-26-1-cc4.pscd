@@ -35,10 +35,10 @@ début
     si(tab[cpt] = cible) alors
       si(case1 = 0) alors
         case1 <- cpt
-      finsi
       sinon
         case2 <- cpt
         /*trouve <- VRAI*/
+      finsi
     finsi
   fintantque
 
