@@ -1,0 +1,57 @@
+/*
+QCM, corrections données après la saisie des réponses
+lire les questions et les réponses dans un fichier
+*/
+
+programme qcm
+déclarations
+  type qcm en enregistrement
+  fin d'enregistrement
+début
+fin
+Programme QCM
+Déclarations
+Type QCM en enregistrement
+	Champs numquestion en entier
+	Champs question en chaine de caractères
+	Champs réponse en chaine de caractères
+Fin d’enregistrement
+Variable LaQuestion en QCM
+Variable Question_Reponse en tableau[20] en QCM
+Variable nb_question, cpt en entier
+Variable NomFichier en fichier
+Début
+// Initialisation //
+Pour cpt variant de 1 à 20 faire
+	Question_Reponse[cpt].numquestion <- -1
+	Question_Reponse[cpt].question <- « »
+	Question_Reponse[cpt].reponse <- « »
+FinPour
+LaQuestion.numquestion <- -1
+LaQuestion.question <- « »
+LaQuestion.reponse <- « »
+Nb_question <- 0
+Fic <- ouvrir (NomFichier, « lecture », « texte »)
+TantQue ( !Findefichier (fic)) Faire
+Nb_question <- Nb_question + 1
+Lire (fic, LaQuestion.numquestion)
+Lire (fic, LaQuestion.question)
+Lire (fic, LaQuestion.réponse)
+Question_Reponse[Nb_question] <- LaQuestion
+FinTantQue
+Fermer (fic)
+
+Afficher (Question_Reponse)
+Cpt <- 1
+TROUVE <- FAUX
+Tant que (cpt <= 20) Faire
+	Ecrire (« Saisir la réponse de l’utilisation à la question », cpt, « : »)
+	Lire (réponse)
+	Si (comparer (réponse, Question_Reponse [cpt].reponse) = VRAI) alors
+		Ecrire (« Bonne réponse »)
+	Sinon
+		Ecrire (« Mauvaise réponse »)
+		Cpt <- cpt +1
+	FinSi
+FinTantQue
+FIN
