@@ -1,3 +1,7 @@
+Examen 2, promo 2014/2015
+
+Exercice I
+
 procédure initialisation(ref tab)
 déclarations
   paramètre tab en tableau[MAX_TABLEAU] d'entiers
