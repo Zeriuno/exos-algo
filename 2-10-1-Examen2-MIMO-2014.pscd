@@ -18,9 +18,9 @@ déclarations
   paramètre tab en tableau[MAX_TABLEAU] d'entiers
   variables chiffre, cpt en entiers
 début
-  cpt ← 0
+  cpt ← 0 /*Notre tableau commence à l'indice 0*/
   tantque(chiffre != -1) faire
-    cpt++
+    cpt++ /*Maintenant cpt est à 1, ainsi quand nous sortirons de la boucle, cpt indiquera la dernière case avec une valeur valide saisie*/
     écrire("Saisir un chiffre (-1 pour arrêter) : ")
     lire(chiffre)
     si(chiffre < -1)
@@ -28,9 +28,11 @@ début
     sinon
       si(chiffre != -1) alors
         tab[cpt] ← chiffre
+      finsi
     finsi
   fintantque
-  retourner(cpt)
+  retourner(cpt) /* Il nous faut bien garder trace de combien de nombres ont été saisis, afin de savoir combien on peut en permettre dans le deuxième tableau. De cette manière on affecte une variable du programme principal.
+  Une alternative valide serait de ne pas retourner de valeur ici (donc une procédure), mais d'appeller la procédure pour la deuxième saisie ici, avec cpt, variable locale. Mais à ce moment là il faudrait passer deux paramètres à la fonction dans laquelle nous sommes: le tableau de saisie, et le tableau à faire saisir dans la deuxième procédure*/
 fin
 
 
