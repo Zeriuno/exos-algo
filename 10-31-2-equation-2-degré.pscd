@@ -1,0 +1,23 @@
+5.2
+Solution d'une équation de second degré.
+
+programme équation
+déclarations
+  variables a, b, c, x, x2, Δ en réels
+début
+  écrire("Saisir la valeur de a : ")
+  lire(a)
+  écrire("Saisir la valeur de b : ")
+  lire(b)
+  écrire("Saisr la valeur de c : ")
+  lire(c)
+  écrire(a "*", x"^2 + ", b "*", x, "+", C "= 0")
+  Δ ← b² - (4ac)
+  selonque Δ alors
+  cas (Δ < 0): écrire("Il n'existe pas de solutions pour cette équation.") fincas
+  cas (Δ = 0): x ← (-b/(2a)), écrire("x = ", x)                            fincas
+  cas (Δ > 0):
+    x ← (-b - racinecarrée(Δ) / 2a
+    x2 ← (-b + racinecarrée(Δ)) / 2a
+    écrire("Deux solutions existent, x1 et x2. x1 = ", x ";  x2 = ", x2)   fincas
+fin

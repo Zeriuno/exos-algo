@@ -1,0 +1,11 @@
+#Exercice n.2.10 du support de cours fourni par M. Jacquenod.
+
+programme carré-nombre-utilisateur
+déclarations
+  variables nombre, carré en réels
+début
+  écrire("Saisir un nombre : ")
+  lire(nombre)
+  carré ← nombre * nombre
+  écrire("Le carré de ", nombre " est ", carré)
+fin

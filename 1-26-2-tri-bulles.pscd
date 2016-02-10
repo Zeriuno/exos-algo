@@ -1,0 +1,32 @@
+Tri bulles
+
+
+permut <- VRAI
+tantque(permut = VRAI) faire
+  permut <- FAUX
+  pour i variant de 1 à nb-1 faire
+    si(tab[i+1] < tab[i])
+      temp <- tab[i]
+      tab[i] <- tab[i+1]
+      tab[i+1] <- temp
+      permut <- VRAI
+    finsi
+  finpour
+fintantque
+
+Amélioration n.1
+
+permut <- VRAI
+j <- 0
+tantque(permut = VRAI) faire
+  j++
+  permut <- FAUX
+  pour i variant de 1 à nb-j faire
+    si(tab[i+1] < tab[i])
+      temp <- tab[i]
+      tab[i] <- tab[i+1]
+      tab[i+1] <- temp
+      permut <- VRAI
+    finsi
+  finpour
+fintantque
