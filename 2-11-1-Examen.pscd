@@ -1,14 +1,17 @@
 #Examen 2 Algorithmique
+
 2016-02-11
 Daniele Pitrolo
 
 ##Exercice 1, Rush cherche
 
-Afin de réduire les tests dans la boucle de recherche, je remplace la valeur de la dernière case qui sera examinée par la valeur cherchée (en stockant la valeur dans une variable temporaire). Si la boucle de recherche se termine à la dernière case (celle dont j'ai substitué la valeur avec la cible de la recherche), je teste l'égalité entre la valeur cherchée et celle qui se trouvait dans la case au départ, et j'ajuste éventuellement le résultat de ma recherche en conséquence.
+Démarche
+
+Afin de réduire les tests dans la boucle de recherche, je remplace la valeur de la dernière case qui sera examinée par la valeur recherchée (en stockant la valeur dans une variable temporaire). Si la boucle de recherche se termine à la dernière case (celle dont j'ai substitué la valeur avec la cible de la recherche), c'est que la valeur recherchée n'a pas été trouvée ailleurs dans le tableau. Dans ce cas, je teste l'égalité entre la valeur recherchée et celle qui se trouvait dans la case au départ, et j'ajuste éventuellement le résultat de ma recherche en conséquence (si il n'y a pas d'égalité, la recherche est en échec).
 L'algorithme est optimisé par rapport à la recherche séquentielle basique:
 
 * parce que la recherche a lieu uniquement dans les cases dans lesquelles on a saisi des valeurs
-* parce que l'on réduit les tests faits dans la boucle de recherche
+* parce que, en assurant que le dernier résultat permettra de sortir de la boucle de recherche, on réduit les tests faits à chaque passage dans la boucle de recherche, en les remplaçant par une opération qui n'est effectuée que dans un cas particulier (recherche qui se termine à la dernière case).
 
 
 procedure Initialisation(ref tab)
@@ -25,6 +28,7 @@ procedure Insertion_data_liste(ref liste, ref indice)
 declarations
   parametres liste en tableau[MAX] d'entiers
   parametre indice en entiers
+  variable num_saisi en entiers
 debut
   [supposé donné par l'exercice]
 fin
@@ -48,8 +52,12 @@ debut
   val_milieu ← t[milieu]
   t[milieu] ← trouve
 
+
+  res ← -1
   stop ← FAUX
   min ← 0
+
+
   tantque(stop = FAUX) faire
     min++
     si(t[min] = trouve)
@@ -70,11 +78,12 @@ debut
     finsi
   finsi
 
-  si(stop = FAUX)
+  si(stop = FAUX) /* Partie qui pourrait avoir lieu dans le programme principal en testant res - si(res = -1) */
     écrire("La valeur " trouve " n'est pas présente")
   sinon
     écrire("La valeur " trouve " est présente à l'indice " res)
   finsi
+  retour(res)
 fin
 
 programme rushcherche
@@ -86,7 +95,7 @@ declarations
 debut
   Initialisation(liste)
   Insertion_data_liste(liste, indice)
-  recherche_seq(liste, indice)
+  res ← recherche_seq(liste, indice)
 fin
 
 
