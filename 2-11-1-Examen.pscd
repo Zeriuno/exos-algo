@@ -112,4 +112,4 @@ variable armoire en tableau[COMBAIEN] de baies
 
 b. Écrire
 
-écrire("Le serveur de la baie " baielue " " armoire[baielue].nom " à l'emplacement " emplu " " est : " armoire[baielue].rack[emplu].nom_serveur "Le périphérique " periphlu " est " armoire[baielue].rack[emplu].)
+écrire("Le serveur de la baie " baielue " " armoire[baielue].nom " à l'emplacement " emplu " " est : " armoire[baielue].rack[emplu].nom_serveur "Le périphérique " periphlu " est " armoire[baielue].rack[emplu].peripherique[1])
